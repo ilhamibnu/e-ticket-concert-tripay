@@ -24,7 +24,7 @@
                     Dies Natalis
                 </a>
 
-                <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a>
+                {{-- <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a> --}}
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,11 +54,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_6">Contact</a>
+                            <a class="nav-link click-scroll" href="#section_6">Check Tiket</a>
                         </li>
                     </ul>
 
-                    <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>
+                    {{-- <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a> --}}
                 </div>
             </div>
         </nav>
@@ -419,7 +419,8 @@
                                 <li class="pricing-list-item">standard content</li>
                             </ul>
 
-                            <a class="link-fx-1 color-contrast-higher mt-4" href="ticket.html">
+                            <a class="link-fx-1 color-contrast-higher mt-4" data-toggle="modal"
+                                data-target=".bd-example-modal-lg">
                                 <span>Buy Ticket</span>
                                 <svg class="icon" viewbox="0 0 32 32" aria-hidden="true">
                                     <g fill="none" stroke="currentColor" stroke-linecap="round"
@@ -455,7 +456,9 @@
                                 <li class="pricing-list-item">live chat support</li>
                             </ul>
 
-                            <a class="link-fx-1 color-contrast-higher mt-4" href="ticket.html">
+
+                            <a class="link-fx-1 color-contrast-higher mt-4" data-toggle="modal"
+                                data-target=".bd-example-modal-lg">
                                 <span>Buy Ticket</span>
                                 <svg class="icon" viewbox="0 0 32 32" aria-hidden="true">
                                     <g fill="none" stroke="currentColor" stroke-linecap="round"
@@ -473,6 +476,87 @@
             </div>
         </section>
 
+        {{-- Modal --}}
+        <!-- Large modal -->
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title custom-btn" id="exampleModalLabel">Order Ticket
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            {{-- <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Message:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                            </form> --}}
+                            <form class="custom-form ticket-form mb-5 mb-lg-0" action="#" method="post"
+                                role="form">
+                                <h2 class="text-center mb-4">Get started here</h2>
+
+                                <div class="ticket-form-body">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <input type="text" name="ticket-form-name" id="ticket-form-name"
+                                                class="form-control" placeholder="Full name" required="">
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <input type="email" name="ticket-form-email" id="ticket-form-email"
+                                                pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address"
+                                                required="">
+                                        </div>
+                                    </div>
+
+                                    <input type="tel" class="form-control" name="ticket-form-phone"
+                                        placeholder="085-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="">
+
+                                    <h6>Choose Ticket Type</h6>
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-check form-control">
+                                                <input class="form-check-input" type="radio" value=""
+                                                    name="TicketForm" id="flexRadioDefault1">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Eary bird $120
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-check form-check-radio form-control">
+                                                <input class="form-check-input" type="radio" value=""
+                                                    name="TicketForm" id="flexRadioDefault2">
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Standard $240
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                        <button type="submit" class="form-control">Buy Ticket</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section class="contact-section section-padding" id="section_6">
             <div class="container">
@@ -487,7 +571,7 @@
                                 <button class="nav-link active" id="nav-ContactForm-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-ContactForm" type="button" role="tab"
                                     aria-controls="nav-ContactForm" aria-selected="false">
-                                    <h5>Contact Form</h5>
+                                    <h5>Check Tiket</h5>
                                 </button>
 
                                 <button class="nav-link" id="nav-ContactMap-tab" data-bs-toggle="tab"
@@ -507,23 +591,23 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-12">
                                                 <input type="text" name="contact-name" id="contact-name"
-                                                    class="form-control" placeholder="Full name" required>
+                                                    class="form-control" placeholder="Email" required>
                                             </div>
 
                                             <div class="col-lg-6 col-md-6 col-12">
                                                 <input type="email" name="contact-email" id="contact-email"
                                                     pattern="[^ @]*@[^ @]*" class="form-control"
-                                                    placeholder="Email address" required>
+                                                    placeholder="Number Phone" required>
                                             </div>
                                         </div>
 
-                                        <input type="text" name="contact-company" id="contact-company"
+                                        {{-- <input type="text" name="contact-company" id="contact-company"
                                             class="form-control" placeholder="Company" required>
 
-                                        <textarea name="contact-message" rows="3" class="form-control" id="contact-message" placeholder="Message"></textarea>
+                                        <textarea name="contact-message" rows="3" class="form-control" id="contact-message" placeholder="Message"></textarea> --}}
 
                                         <div class="col-lg-4 col-md-10 col-8 mx-auto">
-                                            <button type="submit" class="form-control">Send message</button>
+                                            <button type="submit" class="form-control">Check Tiket</button>
                                         </div>
                                     </div>
                                 </form>

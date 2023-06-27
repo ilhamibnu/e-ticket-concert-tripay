@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('tb_pendaftaran', function (Blueprint $table) {
             $table->id();
-            $table->string('no_tiket');
             $table->string('name');
             $table->string('email');
             $table->string('phone');
