@@ -18,7 +18,8 @@ class Pendaftaran extends Model
         'name',
         'email',
         'phone',
-        'qr_code',
+        'tiket',
+        'qris',
         'status',
         'id_paket',
     ];

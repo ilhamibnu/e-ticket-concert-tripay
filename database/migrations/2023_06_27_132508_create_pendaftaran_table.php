@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->string('qr_code');
+            $table->string('tiket');
+            $table->string('qris');
             $table->string('status');
             $table->timestamps();
         });
