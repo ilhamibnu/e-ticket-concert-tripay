@@ -65,8 +65,11 @@ T e m p l a t e M o
     <script src="{{ asset('landing/js/3411-js-jquery.sticky.js') }}"></script>
     <script src="{{ asset('landing/js/4088-js-click-scroll.js') }}"></script>
     <script src="{{ asset('landing/js/9062-js-custom.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </body>
 
 </html>
+
+@yield('sweetalert')

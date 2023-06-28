@@ -396,167 +396,49 @@
                         <h2 class="text-center mb-4">Plans, you' love</h2>
                     </div>
 
-                    <div class="col-lg-6 col-12">
-                        <div class="pricing-thumb">
-                            <div class="d-flex">
-                                <div>
-                                    <h3><small>Early Bird</small> $120</h3>
+                    @foreach ($paket as $item)
+                        <div class="col-lg-6 col-12">
+                            <div class="pricing-thumb">
+                                <div class="d-flex">
+                                    <div>
+                                        <h3><small>{{ $item->name }}</small>Rp.{{ number_format($item->harga) }}</h3>
 
-                                    <p>Including good things:</p>
+                                        <p>Including good things:</p>
+                                    </div>
+
+                                    <p class="pricing-tag ms-auto">Save up to <span>50%</span>
+                                    </p>
                                 </div>
 
-                                <p class="pricing-tag ms-auto">Save up to <span>50%</span>
-                                </p>
+                                <ul class="pricing-list mt-3">
+                                    <li class="pricing-list-item">platform for potential customers</li>
+
+                                    <li class="pricing-list-item">digital experience</li>
+
+                                    <li class="pricing-list-item">high-quality sound</li>
+
+                                    <li class="pricing-list-item">standard content</li>
+                                </ul>
+
+                                <a class="link-fx-1 color-contrast-higher mt-4" data-toggle="modal"
+                                    data-target=".bd-example-modal-lg">
+                                    <span>Buy Ticket</span>
+                                    <svg class="icon" viewbox="0 0 32 32" aria-hidden="true">
+                                        <g fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="16" cy="16" r="15.5"></circle>
+                                            <line x1="10" y1="18" x2="16" y2="12"></line>
+                                            <line x1="16" y1="12" x2="22" y2="18"></line>
+                                        </g>
+                                    </svg>
+                                </a>
                             </div>
-
-                            <ul class="pricing-list mt-3">
-                                <li class="pricing-list-item">platform for potential customers</li>
-
-                                <li class="pricing-list-item">digital experience</li>
-
-                                <li class="pricing-list-item">high-quality sound</li>
-
-                                <li class="pricing-list-item">standard content</li>
-                            </ul>
-
-                            <a class="link-fx-1 color-contrast-higher mt-4" data-toggle="modal"
-                                data-target=".bd-example-modal-lg">
-                                <span>Buy Ticket</span>
-                                <svg class="icon" viewbox="0 0 32 32" aria-hidden="true">
-                                    <g fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="16" cy="16" r="15.5"></circle>
-                                        <line x1="10" y1="18" x2="16" y2="12"></line>
-                                        <line x1="16" y1="12" x2="22" y2="18"></line>
-                                    </g>
-                                </svg>
-                            </a>
                         </div>
-                    </div>
-
-                    <div class="col-lg-6 col-12 mt-4 mt-lg-0">
-                        <div class="pricing-thumb">
-                            <div class="d-flex">
-                                <div>
-                                    <h3><small>Standard</small> $240</h3>
-
-                                    <p>What makes a premium festava?</p>
-                                </div>
-                            </div>
-
-                            <ul class="pricing-list mt-3">
-                                <li class="pricing-list-item">platform for potential customers</li>
-
-                                <li class="pricing-list-item">digital experience</li>
-
-                                <li class="pricing-list-item">high-quality sound</li>
-
-                                <li class="pricing-list-item">premium content</li>
-
-                                <li class="pricing-list-item">live chat support</li>
-                            </ul>
-
-
-                            <a class="link-fx-1 color-contrast-higher mt-4" data-toggle="modal"
-                                data-target=".bd-example-modal-lg">
-                                <span>Buy Ticket</span>
-                                <svg class="icon" viewbox="0 0 32 32" aria-hidden="true">
-                                    <g fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="16" cy="16" r="15.5"></circle>
-                                        <line x1="10" y1="18" x2="16" y2="12"></line>
-                                        <line x1="16" y1="12" x2="22" y2="18"></line>
-                                    </g>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>
         </section>
-
-        {{-- Modal --}}
-        <!-- Large modal -->
-
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title custom-btn" id="exampleModalLabel">Order Ticket
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            {{-- <form>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Message:</label>
-                                    <textarea class="form-control" id="message-text"></textarea>
-                                </div>
-                            </form> --}}
-                            <form class="custom-form ticket-form mb-5 mb-lg-0" action="#" method="post"
-                                role="form">
-                                <h2 class="text-center mb-4">Get started here</h2>
-
-                                <div class="ticket-form-body">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <input type="text" name="ticket-form-name" id="ticket-form-name"
-                                                class="form-control" placeholder="Full name" required="">
-                                        </div>
-
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <input type="email" name="ticket-form-email" id="ticket-form-email"
-                                                pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address"
-                                                required="">
-                                        </div>
-                                    </div>
-
-                                    <input type="tel" class="form-control" name="ticket-form-phone"
-                                        placeholder="085-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="">
-
-                                    <h6>Choose Ticket Type</h6>
-
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="form-check form-control">
-                                                <input class="form-check-input" type="radio" value=""
-                                                    name="TicketForm" id="flexRadioDefault1">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Eary bird $120
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="form-check form-check-radio form-control">
-                                                <input class="form-check-input" type="radio" value=""
-                                                    name="TicketForm" id="flexRadioDefault2">
-                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                    Standard $240
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-10 col-8 mx-auto">
-                                        <button type="submit" class="form-control">Buy Ticket</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <section class="contact-section section-padding" id="section_6">
             <div class="container">
@@ -585,32 +467,84 @@
                         <div class="tab-content shadow-lg mt-5" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-ContactForm" role="tabpanel"
                                 aria-labelledby="nav-ContactForm-tab">
-                                <form class="custom-form contact-form mb-5 mb-lg-0" action="#" method="post"
+                                <form class="custom-form contact-form mb-5 mb-lg-0" action="/" method="post"
                                     role="form">
+                                    @csrf
+
                                     <div class="contact-form-body">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-12">
-                                                <input type="text" name="contact-name" id="contact-name"
-                                                    class="form-control" placeholder="Email" required>
+                                                <input type="text" name="email" id="contact-name"
+                                                    class="form-control" placeholder="Email">
                                             </div>
 
                                             <div class="col-lg-6 col-md-6 col-12">
-                                                <input type="email" name="contact-email" id="contact-email"
-                                                    pattern="[^ @]*@[^ @]*" class="form-control"
-                                                    placeholder="Number Phone" required>
+                                                <input type="tel" name="phone" id="contact-email"
+                                                    class="form-control" placeholder="Number Phone">
                                             </div>
                                         </div>
 
-                                        {{-- <input type="text" name="contact-company" id="contact-company"
-                                            class="form-control" placeholder="Company" required>
-
-                                        <textarea name="contact-message" rows="3" class="form-control" id="contact-message" placeholder="Message"></textarea> --}}
-
                                         <div class="col-lg-4 col-md-10 col-8 mx-auto">
+
                                             <button type="submit" class="form-control">Check Tiket</button>
                                         </div>
                                     </div>
+
                                 </form>
+
+                                <br><br>
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close"><span aria-hidden="true">×</span>
+                                        </button>
+
+
+                                        <?php
+                                        
+                                        $nomer = 1;
+                                        
+                                        ?>
+
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $nomer++ }}. {{ $error }}</li>
+                                        @endforeach
+                                    </div>
+                                @elseif ($datatiket)
+                                    <div class="alert alert-success alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close"><span aria-hidden="true">×</span>
+                                        </button>
+
+                                        <li>Nama : {{ $datatiket->name }}</li>
+                                        <li>Email : {{ $datatiket->email }}</li>
+                                        <li>Phone : {{ $datatiket->phone }}</li>
+                                        <li>Paket : {{ $datatiket->paket->name }}</li>
+                                        <li>Harga : Rp. {{ number_format($datatiket->paket->harga) }}</li>
+                                        <li>Status Pembayaran : {{ $datatiket->status }}</li>
+                                        <br>
+                                        @if ($datatiket->status == 'pending')
+                                            <div class="text-center align-center">
+                                                <li>
+                                                    Lakukan Pembayaran Lebih Dulu Yaa...
+
+                                                </li>
+                                                <br>
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDYB4W6qftrIsETmOy5X3w3j9SrhZEDOovaA&usqp=CAU"
+                                                    alt="">
+                                            </div>
+                                        @else
+                                            <li>Qrcode Tiket : </li>
+                                            <br>
+                                            <div class="text-center align-center">
+                                                {!! QrCode::size(150)->generate(base64_encode($datatiket->tiket)) !!}
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                @endif
+
                             </div>
 
                             <div class="tab-pane fade" id="nav-ContactMap" role="tabpanel"
@@ -627,5 +561,128 @@
                 </div>
             </div>
         </section>
+
+
+        {{-- Modal --}}
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title custom-btn" id="exampleModalLabel">Order Ticket
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                            aria-hidden="true">×</span>
+                                    </button>
+
+
+                                    <?php
+                                    
+                                    $nomer = 1;
+                                    
+                                    ?>
+
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $nomer++ }}. {{ $error }}</li>
+                                    @endforeach
+                                </div>
+                            @endif
+                            <form class="custom-form ticket-form mb-5 mb-lg-0" action="/daftar" method="post"
+                                role="form">
+                                @csrf
+                                <h2 class="text-center mb-4">Get started here</h2>
+
+                                <div class="ticket-form-body">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <input type="text" name="name" id="ticket-form-name"
+                                                class="form-control" placeholder="Full name">
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <input type="email" name="email" id="ticket-form-email"
+                                                class="form-control" placeholder="Email address">
+                                        </div>
+                                    </div>
+
+                                    <input type="tel" class="form-control" name="phone"
+                                        placeholder="085-456-7890">
+
+                                    <h6>Choose Ticket Type</h6>
+
+                                    <div class="row">
+
+                                        @foreach ($paket as $data)
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-check form-control">
+                                                    <input class="form-check-input" type="radio"
+                                                        value="{{ $data->id }}" name="id_paket"
+                                                        id="flexRadioDefault{{ $data->id }}">
+                                                    <label class="form-check-label"
+                                                        for="flexRadioDefault{{ $data->id }}">
+                                                        {{ $data->name }} - Rp.{{ number_format($data->harga) }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                        <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                            <button type="submit" class="form-control">Buy Ticket</button>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
+@endsection
+
+@section('sweetalert')
+    @if (Session::get('create'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Done!',
+                text: 'Anda Berhasil Membeli Tiket!',
+            });
+        </script>
+    @endif
+    @if (Session::get('delete'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Done!',
+                text: 'Anda Berhasil Menghapus Pembelian Tiket!',
+            });
+        </script>
+    @endif
+    @if (Session::get('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Data Tiket Tidak Ditemukan!',
+            });
+        </script>
+    @endif
+    @if (Session::get('datatiket'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Done!',
+                text: 'Data Tiket Ditemukan!',
+            });
+        </script>
+    @endif
 @endsection

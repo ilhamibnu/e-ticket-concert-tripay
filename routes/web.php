@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landing.pages.index');
-});
+Route::get('/', [LandingController::class, 'index']);
+Route::get('/index', [LandingController::class, 'index']);
+Route::post('/daftar', [LandingController::class, 'daftar']);
+Route::post('/', [LandingController::class, 'caritiket']);
