@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paket;
 use App\Models\Pendaftaran;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class LandingController extends Controller
@@ -72,12 +73,14 @@ class LandingController extends Controller
         );
 
         $pendaftaran = Pendaftaran::with('paket')->where('email', $request->email)->where('phone', $request->phone)->first();
-        $cariid = Pendaftaran::where('email', $request->email)->where('phone', $request->phone)->first();
-        // $id = $cariid->id;
-        // $datapendaftaran = Pendaftaran::find($id);
-        $datapaket = Paket::find($cariid->id_paket);
+
+      
 
         if($pendaftaran){
+            
+        $cariid = Pendaftaran::where('email', $request->email)->where('phone', $request->phone)->first();
+       
+        $datapaket = Paket::find($cariid->id_paket);
             
             if($cariid->bank == null){
                 
@@ -101,6 +104,14 @@ class LandingController extends Controller
                     'phone' => $cariid->phone,
                     'email' => $cariid->email,
                 ),
+                'item_details' => array(
+                    array(
+                        'id' => $datapaket->id,
+                        'price' => $datapaket->harga,
+                        'quantity' => 1,
+                        'name' => $datapaket->name,
+                    ),
+                ),
             );
            
             $snapToken = \Midtrans\Snap::getSnapToken($params);
@@ -108,7 +119,8 @@ class LandingController extends Controller
             return view('landing.pages.index', [
                 'snapToken' => $snapToken,
                 'datatiket' => $pendaftaran,
-                'paket' => $paket
+                'paket' => $paket,
+                //  'qrCode' => $qrCode
             ]);
                 
       
@@ -117,7 +129,8 @@ class LandingController extends Controller
                 return view('landing.pages.index', [
                 'snapToken' => '',
                 'datatiket' => $pendaftaran,
-                'paket' => $paket
+                'paket' => $paket,
+                //  'qrCode' => $qrCode
             ]);
                 
           

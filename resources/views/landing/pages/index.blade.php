@@ -649,11 +649,13 @@
                                             </div>
 
                                     @elseif ($datatiket->status == 'paid')
+                                   
                                         <li>QrCode Tiket : </li>
                                         <br>
                                         <div class="text-center align-center">
-                                            {!! QrCode::size(150)->generate(base64_encode($datatiket->tiket)) !!}
+                                        {!! DNS2D::getBarcodeHTML($datatiket->tiket, 'QRCODE') !!}
                                         </div>
+                                     
                                     @endif
                                 </div>
                             @endif
@@ -758,6 +760,8 @@
 @endsection
 
 @section('script')
+
+<script type="text/javascript" src="{{ asset('landing/qrcodejs/qrcode.js') }}"></script>
 <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="{{ config('midtrans.client_key') }}"></script>
 <script type="text/javascript">
@@ -769,7 +773,6 @@
 
 </script>
 
-</script>
 @endsection
 
 @section('sweetalert')
