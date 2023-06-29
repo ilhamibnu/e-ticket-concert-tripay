@@ -40,8 +40,7 @@ class LandingController extends Controller
         );
 
         $pendaftaran = new Pendaftaran;
-        // membuat id tiket dengan format tahun bulan tanggal + 1 digit angka berurut
-        $idtiket = date('Ymd') . sprintf("%01s", Pendaftaran::count() + 1);
+        $idtiket = date('Ymd') . rand(100, 999);
         $pendaftaran->id = $idtiket;
         $pendaftaran->name = $request->name;
         $pendaftaran->email = $request->email;
@@ -74,13 +73,15 @@ class LandingController extends Controller
 
         $pendaftaran = Pendaftaran::with('paket')->where('email', $request->email)->where('phone', $request->phone)->first();
         $cariid = Pendaftaran::where('email', $request->email)->where('phone', $request->phone)->first();
-        $id = $cariid->id;
-        $datapendaftaran = Pendaftaran::find($id);
-        $datapaket = Paket::find($datapendaftaran->id_paket);
+        // $id = $cariid->id;
+        // $datapendaftaran = Pendaftaran::find($id);
+        $datapaket = Paket::find($cariid->id_paket);
 
         if($pendaftaran){
-
-            \Midtrans\Config::$serverKey = config('midtrans.server_key');
+            
+            if($cariid->bank == null){
+                
+                  \Midtrans\Config::$serverKey = config('midtrans.server_key');
             // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
             \Midtrans\Config::$isProduction = false;
     
@@ -92,22 +93,37 @@ class LandingController extends Controller
     
             $params = array(
                 'transaction_details' => array(
-                    'order_id' => $datapendaftaran->id,
+                    'order_id' => $cariid->id,
                     'gross_amount' => $datapaket->harga,
                 ),
                 'customer_details' => array(
-                    'first_name' => $datapendaftaran->name,
-                    'phone' => $datapendaftaran->phone,
-                    'email' => $datapendaftaran->email,
+                    'first_name' => $cariid->name,
+                    'phone' => $cariid->phone,
+                    'email' => $cariid->email,
                 ),
             );
+           
             $snapToken = \Midtrans\Snap::getSnapToken($params);
-
+            
             return view('landing.pages.index', [
                 'snapToken' => $snapToken,
                 'datatiket' => $pendaftaran,
                 'paket' => $paket
             ]);
+                
+      
+            }else{
+                
+                return view('landing.pages.index', [
+                'snapToken' => '',
+                'datatiket' => $pendaftaran,
+                'paket' => $paket
+            ]);
+                
+          
+            }
+              
+
         }else{
             return redirect('/')->with('error', 'Data tidak ditemukan');
         }
