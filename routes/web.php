@@ -16,7 +16,6 @@ use App\Http\Controllers\LandingController;
 
 Route::get('/', [LandingController::class, 'index']);
 Route::get('/index', [LandingController::class, 'index']);
-Route::post('/checkout', [LandingController::class, 'daftar']);
 Route::post('/daftar', [LandingController::class, 'daftar']);
 Route::post('/', [LandingController::class, 'caritiket']);
 Route::delete('/bataltiket/{id}', [LandingController::class, 'bataltiket']);
