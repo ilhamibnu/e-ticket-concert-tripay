@@ -25,6 +25,7 @@
     <link href="{{ asset('landing/css/css-bootstrap-icons.css') }}" rel="stylesheet">
 
     <link href="{{ asset('landing/css/css-templatemo-festava-live.css') }}" rel="stylesheet">
+    @yield('head')
     <!--
 
 TemplateMo 583 Festava Live
@@ -66,6 +67,8 @@ T e m p l a t e M o
     <script src="{{ asset('landing/js/4088-js-click-scroll.js') }}"></script>
     <script src="{{ asset('landing/js/9062-js-custom.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @yield('script')
 
 
 </body>

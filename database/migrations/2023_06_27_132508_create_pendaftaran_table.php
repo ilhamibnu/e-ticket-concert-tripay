@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('tiket')->nullable();
-            $table->string('qris')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('va')->nullable();
+            $table->string('kadaluarsa')->nullable();
             $table->string('status');
             $table->timestamps();
         });

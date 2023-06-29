@@ -14,12 +14,13 @@ class Pendaftaran extends Model
     protected $table = 'tb_pendaftaran';
 
     protected $fillable = [
-        'no_tiket',
         'name',
         'email',
         'phone',
         'tiket',
-        'qris',
+        'bank',
+        'va',
+        'kadaluarsa',
         'status',
         'id_paket',
     ];

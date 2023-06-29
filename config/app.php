@@ -169,6 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        // tripay
 
     ])->toArray(),
 
@@ -187,7 +188,4 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
     'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-
-
-
 ];
