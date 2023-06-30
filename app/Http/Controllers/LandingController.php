@@ -52,8 +52,9 @@ class LandingController extends Controller
         }else{
 
             $pendaftaran = new Pendaftaran;
-            $idtiket = date('Ymd') . rand(100, 999);
-            $pendaftaran->id = $idtiket;
+            $id = date('Ymd') . rand(100, 999);
+            $idtiket = 'T' . date('Ymd') . Time() . rand(100, 999);
+            $pendaftaran->id = $id;
             $pendaftaran->name = $request->name;
             $pendaftaran->email = $request->email;
             $pendaftaran->phone = $request->phone;

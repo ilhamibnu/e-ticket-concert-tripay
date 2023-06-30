@@ -18,7 +18,13 @@
                         <div class="card-body">
 
                             <form>
-                                <div id="reader" width="500px" height="500px"></div>
+                                <div class="row">
+                                    <h3>Scan QR Code</h3>
+                                    <div class="col-4">
+                                    <div id="reader" width="400px"></div>
+                                    </div>
+                                </div>
+                              
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Nama
                                     </label>
@@ -75,6 +81,7 @@
 
         $('#reader').val(decodedText);
         let id = decodedText;
+        html5QrcodeScanner.clear();
 
         var csrf_token = $('meta[name="csrf-token"]').attr('content');
 
@@ -103,8 +110,10 @@
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     }).then((result) => {
-
+                        // reload
+                        location.reload();
                     })
+                  
                 } else if (response.success == "belumbayar") {
                     $('#name').val(response.pendaftaran.name);
                     $('#email').val(response.pendaftaran.email);
@@ -120,7 +129,7 @@
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     }).then((result) => {
-
+                        location.reload();
                     })
                 } else if (response.success == "sudahcheckin") {
                     $('#name').val(response.pendaftaran.name);
@@ -137,7 +146,7 @@
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     }).then((result) => {
-
+                        location.reload();
                     })
                 } else {
                     $('#name').val('');
@@ -154,7 +163,7 @@
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     }).then((result) => {
-
+                        location.reload();
                     })
                 }
             },
