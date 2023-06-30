@@ -532,6 +532,7 @@
                 
                                                 <button class="btn btn-success" id="pay-button">Pilih Metode Pembayaran</button>
                                                 </div>
+                                                <li>Catatan : Setelah Memilih Metode Pembayaran, Anda Hanya Memiliki Waktu 30 Menit Untuk Menyelesaikan Pembayaran.</li>
                                         </div>
                                     @elseif ($datatiket->status == 'pending' && $datatiket->bank != '')
 

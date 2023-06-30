@@ -77,6 +77,9 @@ class LandingController extends Controller
     public function caritiket(Request $request)
     {
         $paket = Paket::all();
+        foreach($paket as $p){
+            $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count();
+        }
         $request->validate([
             'email' => 'required|email',
             'phone' => 'required',
@@ -173,21 +176,21 @@ class LandingController extends Controller
                 $order = Pendaftaran::find($request->order_id);
                 $order->bank = $request->va_numbers[0]['bank'];
                 $order->va = $request->va_numbers[0]['va_number'];
-                $order->kadaluarsa = $request->transaction_time;
+                $order->kadaluarsa = $request->expiry_time;
                 $order->status = 'paid';
                 $order->save();
             }elseif ($request->transaction_status == 'pending') {
                 $order = Pendaftaran::find($request->order_id);
                 $order->bank = $request->va_numbers[0]['bank'];
                 $order->va = $request->va_numbers[0]['va_number'];
-                $order->kadaluarsa = $request->transaction_time;
+                $order->kadaluarsa = $request->expiry_time;
                 $order->status = 'pending';
                 $order->save();
             }else{
                 $order = Pendaftaran::find($request->order_id);
                 $order->bank = $request->va_numbers[0]['bank'];
                 $order->va = $request->va_numbers[0]['va_number'];
-                $order->kadaluarsa = $request->transaction_time;
+                $order->kadaluarsa = $request->expiry_time;
                 $order->status = 'expire';
                 $order->save();
             }
