@@ -22,6 +22,7 @@ class LandingController extends Controller
             'paket' => $paket,
             'datatiket' => $pendaftaran,
             'snapToken' => '',
+
         ]);
     }
 

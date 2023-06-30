@@ -25,6 +25,7 @@
     <link href="{{ asset('landing/css/css-bootstrap-icons.css') }}" rel="stylesheet">
 
     <link href="{{ asset('landing/css/css-templatemo-festava-live.css') }}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     @yield('head')
     <!--
 
