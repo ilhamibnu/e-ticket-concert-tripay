@@ -468,7 +468,6 @@
                             aria-labelledby="nav-ContactForm-tab">
                             <form class="custom-form contact-form mb-5 mb-lg-0" action="/" method="post" role="form">
                                 @csrf
-
                                 <div class="contact-form-body">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-12">

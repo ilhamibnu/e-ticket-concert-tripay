@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paket;
 use App\Models\Pendaftaran;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class LandingController extends Controller
@@ -51,6 +50,7 @@ class LandingController extends Controller
         $pendaftaran->va = '';
         $pendaftaran->kadaluarsa = '';
         $pendaftaran->status = 'pending';
+        $pendaftaran->checkin = 'belum';
         $pendaftaran->id_paket = $request->id_paket;
         $pendaftaran->save();
 

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('va')->nullable();
             $table->string('kadaluarsa')->nullable();
             $table->string('status');
+            $table->string('checkin');
             $table->timestamps();
         });
     }
