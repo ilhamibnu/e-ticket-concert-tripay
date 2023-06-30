@@ -406,7 +406,7 @@
                                     <p>Including good things:</p>
                                 </div>
 
-                                <p class="pricing-tag ms-auto">Save up to <span>50%</span>
+                                <p class="pricing-tag ms-auto">Tersedia <span>{{$item->sisa }}</span>
                                 </p>
                             </div>
 
@@ -472,12 +472,12 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <input type="text" name="email" id="contact-name" class="form-control"
-                                                placeholder="Email">
+                                                placeholder="Email" required>
                                         </div>
 
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <input type="tel" name="phone" id="contact-email" class="form-control"
-                                                placeholder="Number Phone">
+                                                placeholder="Number Phone" required>
                                         </div>
                                     </div>
 
@@ -559,7 +559,7 @@
                                         <li>Kadalursa : {{ $datatiket->kadaluarsa }}</li>
                                         
                                         <br>
-                                        <li>Apabila Pembayaran Anda Expiry, Silahkan Lakukan Pembatan Tiket, Kemudian
+                                        <li>Apabila Pembayaran Anda Kadaluarsa, Silahkan Lakukan Pembatan Tiket, Kemudian
                                             Pesan Kembali</li>
                                         <div class="text-center align-center">
                                             <button class="btn btn-danger" data-toggle="modal"
@@ -602,7 +602,7 @@
 
                                             <div class="text-center align-center">
                                                 <li>
-                                                    Lakukan Pembayaran Anda Kadaluarsa
+                                                    Pembayaran Anda Kadaluarsa
 
                                                 </li>
                                             
@@ -718,12 +718,12 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <input type="text" name="name" id="ticket-form-name" class="form-control"
-                                            placeholder="Full name">
+                                            placeholder="Full name" required>
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <input type="email" name="email" id="ticket-form-email" class="form-control"
-                                            placeholder="Email address">
+                                            placeholder="Email address" required>
                                     </div>
                                 </div>
 
@@ -780,7 +780,17 @@
         Swal.fire({
             icon: 'success',
             title: 'Done!',
-            text: 'Anda Berhasil Melakukan Pembelian Tiket!, Lakukan Pembayaran Sebelum 1x24 Jam!, Pada Menu Check Tiket',
+            text: 'Anda Berhasil Melakukan Pembelian Tiket!, Lakukan Pembayaran Pada Menu Check Tiket',
+        });
+
+    </script>
+@endif
+@if(Session::get('pakettidaktersedia'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Tiket Tidak Tersedia!',
         });
 
     </script>

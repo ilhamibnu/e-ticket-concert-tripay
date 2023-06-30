@@ -3,7 +3,7 @@
 
 namespace Database\Seeders;
 use \App\Models\Paket;
-use \App\Models\Pendaftaran;
+use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -34,6 +34,10 @@ class DatabaseSeeder extends Seeder
                 'jumlah' => 500,
             ]);
 
-
+            User::create([
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('admin123'),
+            ]);
     }
 }

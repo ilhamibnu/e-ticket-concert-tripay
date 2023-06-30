@@ -12,12 +12,16 @@ class LandingController extends Controller
     public function index()
     {
         $paket = Paket::all();
+        // cek sisa paket
+        foreach($paket as $p){
+            $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count();
+        }
         $pendaftaran = Pendaftaran::find(0);
 
         return view('landing.pages.index', [
             'paket' => $paket,
             'datatiket' => $pendaftaran,
-            'snapToken' => ''
+            'snapToken' => '',
         ]);
     }
 
@@ -39,22 +43,32 @@ class LandingController extends Controller
         ]
         );
 
-        $pendaftaran = new Pendaftaran;
-        $idtiket = date('Ymd') . rand(100, 999);
-        $pendaftaran->id = $idtiket;
-        $pendaftaran->name = $request->name;
-        $pendaftaran->email = $request->email;
-        $pendaftaran->phone = $request->phone;
-        $pendaftaran->tiket = $idtiket;
-        $pendaftaran->bank = '';
-        $pendaftaran->va = '';
-        $pendaftaran->kadaluarsa = '';
-        $pendaftaran->status = 'pending';
-        $pendaftaran->checkin = 'belum';
-        $pendaftaran->id_paket = $request->id_paket;
-        $pendaftaran->save();
+        // cek persedian tiket
+        $cek = Paket::find($request->id_paket);
+        $cekpendaftaran = Pendaftaran::where('id_paket', $request->id_paket)->where('status', '=', 'paid')->count();
+        if($cek->jumlah <= $cekpendaftaran){
+            return redirect('/')->with('pakettidaktersedia', 'Paket sudah penuh');
+        }else{
 
-        return redirect('/')->with('create', 'Pendaftaran berhasil');
+            $pendaftaran = new Pendaftaran;
+            $idtiket = date('Ymd') . rand(100, 999);
+            $pendaftaran->id = $idtiket;
+            $pendaftaran->name = $request->name;
+            $pendaftaran->email = $request->email;
+            $pendaftaran->phone = $request->phone;
+            $pendaftaran->tiket = $idtiket;
+            $pendaftaran->bank = '';
+            $pendaftaran->va = '';
+            $pendaftaran->kadaluarsa = '';
+            $pendaftaran->status = 'pending';
+            $pendaftaran->checkin = 'belum';
+            $pendaftaran->id_paket = $request->id_paket;
+            $pendaftaran->save();
+    
+            return redirect('/')->with('create', 'Pendaftaran berhasil');
+
+        }
+       
     }
 
 

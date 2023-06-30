@@ -5,6 +5,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\CheckinController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,16 +24,20 @@ Route::post('/daftar', [LandingController::class, 'daftar']);
 Route::post('/', [LandingController::class, 'caritiket']);
 Route::delete('/bataltiket/{id}', [LandingController::class, 'bataltiket']);
 
-Route::get('/checkin', [CheckinController::class, 'index']);
-Route::post('/checkin', [CheckinController::class, 'checkin']);
+route::get('/login', [AuthController::class, 'index'])->middleware('IsStay');
+route::post('/login', [AuthController::class, 'authenticate'])->middleware('IsStay');
+route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');
 
-Route::get('/checkin2', [CheckinController::class, 'index2']);
-Route::post('/checkin2', [CheckinController::class, 'checkin2']);
+Route::get('/checkin', [CheckinController::class, 'index'])->middleware('IsLogin');
+Route::post('/checkin', [CheckinController::class, 'checkin'])->middleware('IsLogin');
 
-Route::get('/paket', [PaketController::class, 'index']);
-Route::get('/paket/{id}', [PaketController::class, 'detailpaket']);
-Route::post('/paket', [PaketController::class, 'store']);
-Route::put('/paket/{id}', [PaketController::class, 'update']);
-Route::delete('/paket/{id}', [PaketController::class, 'destroy']);
+Route::get('/checkin2', [CheckinController::class, 'index2'])->middleware('IsLogin');
+Route::post('/checkin2', [CheckinController::class, 'checkin2'])->middleware('IsLogin');
 
-Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+Route::get('/paket', [PaketController::class, 'index'])->middleware('IsLogin');
+Route::get('/paket/{id}', [PaketController::class, 'detailpaket'])->middleware('IsLogin');
+Route::post('/paket', [PaketController::class, 'store'])->middleware('IsLogin');
+Route::put('/paket/{id}', [PaketController::class, 'update'])->middleware('IsLogin');
+Route::delete('/paket/{id}', [PaketController::class, 'destroy'])->middleware('IsLogin');
+
+Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->middleware('IsLogin');
