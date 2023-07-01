@@ -533,6 +533,43 @@
                                                 <button class="btn btn-success" id="pay-button">Pilih Metode Pembayaran</button>
                                                 </div>
                                                 <li>Catatan : Setelah Memilih Metode Pembayaran, Anda Hanya Memiliki Waktu 30 Menit Untuk Menyelesaikan Pembayaran.</li>
+                                                <li>Anda Ingin Batalkan Pemesanan Tiket ?</li>
+                                        <div class="text-center align-center">
+                                            <button class="btn btn-danger" data-toggle="modal"
+                                                data-target="#modalbatal">Batalkan Tiket</button>
+                                        </div>
+
+                                        <div class="modal fade bd-example-modal-lg" id="modalbatal" tabindex="-1"
+                                            role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                                Pembatalan Tiket
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <form class="custom-form ticket-form mb-5 mb-lg-0"
+                                                                action="/bataltiket/{{ $datatiket->id }}"
+                                                                method="post" role="form">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <p>Anda Yakin Akan Membatalkan Tiket ?</p>
+                                                                <button class="btn btn-danger" type="submit">Batalkan
+                                                                    Tiket</button>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         </div>
                                     @elseif ($datatiket->status == 'pending' && $datatiket->bank != '')
 

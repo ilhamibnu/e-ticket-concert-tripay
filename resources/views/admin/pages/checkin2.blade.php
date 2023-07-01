@@ -20,45 +20,44 @@
                             <form>
                                 <div class="row">
                                     <h3>Scan QR Code</h3>
-                                    <div class="col-4">
-                                    <div id="reader" width="400px"></div>
-                                    </div>
                                 </div>
-                              
+                                 <div class="row">
+                                     <div id="reader" height="400px" width="400px"></div>
+                                    </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Nama
                                     </label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input disabled type="text" class="form-control" id="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Email
                                     </label>
-                                    <input type="text" class="form-control" id="email">
+                                    <input disabled type="text" class="form-control" id="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Phone
                                     </label>
-                                    <input type="text" class="form-control" id="phone">
+                                    <input disabled type="text" class="form-control" id="phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Paket
                                     </label>
-                                    <input type="text" class="form-control" id="paket">
+                                    <input disabled type="text" class="form-control" id="paket">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Harga
                                     </label>
-                                    <input type="text" class="form-control" id="harga">
+                                    <input disabled type="text" class="form-control" id="harga">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Status Pembayaran
                                     </label>
-                                    <input type="text" class="form-control" id="statuspembayaran">
+                                    <input disabled type="text" class="form-control" id="statuspembayaran">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Status Checkin
                                     </label>
-                                    <input type="text" class="form-control" id="statuscheckin">
+                                    <input disabled type="text" class="form-control" id="statuscheckin">
                                 </div>
 
                             </form>
@@ -82,7 +81,6 @@
         $('#reader').val(decodedText);
         let id = decodedText;
         html5QrcodeScanner.clear();
-
         var csrf_token = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
@@ -105,15 +103,17 @@
 
                     Swal.fire({
                         title: 'Berhasil',
-                        text: "Checkin Berhasil",
+                        // text: "Checkin Berhasil",
                         icon: 'success',
+                         html: '<p>Checkin Berhasil</p><br></br>'
+                         +'<p>Name: ' + response.pendaftaran.name + '</p>'
+                         +'<p>Paket: ' + response.paket.name + '</p>',
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     }).then((result) => {
-                        // reload
-                        location.reload();
+                      location.reload();
+
                     })
-                  
                 } else if (response.success == "belumbayar") {
                     $('#name').val(response.pendaftaran.name);
                     $('#email').val(response.pendaftaran.email);
@@ -122,14 +122,20 @@
                     $('#harga').val(response.paket.harga);
                     $('#statuspembayaran').val(response.pendaftaran.status);
                     $('#statuscheckin').val(response.pendaftaran.checkin);
+                    
+                 
                     Swal.fire({
                         title: 'Gagal',
-                        text: "Checkin Gagal, Pembayaran Belum Lunas",
+                        // text: "Checkin Gagal, Pembayaran Belum Lunas",
                         icon: 'error',
+                        html: '<p>Checkin Gagal, Pembayaran Belum Lunas</p><br></br>'
+                         +'<p>Name: ' + response.pendaftaran.name + '</p>'
+                         +'<p>Paket: ' + response.paket.name + '</p>',
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     }).then((result) => {
-                        location.reload();
+                      location.reload();
+
                     })
                 } else if (response.success == "sudahcheckin") {
                     $('#name').val(response.pendaftaran.name);
@@ -139,14 +145,19 @@
                     $('#harga').val(response.paket.harga);
                     $('#statuspembayaran').val(response.pendaftaran.status);
                     $('#statuscheckin').val(response.pendaftaran.checkin);
+             
                     Swal.fire({
                         title: 'Gagal',
-                        text: "Checkin Gagal, Sudah Melakukan Checkin",
+                        // text: "Checkin Gagal, Sudah Melakukan Checkin",
                         icon: 'error',
+                          html: '<p>Checkin Gagal, Sudah Melakukan Checkin</p><br></br>'
+                         +'<p>Name: ' + response.pendaftaran.name + '</p>'
+                         +'<p>Paket: ' + response.paket.name + '</p>',
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     }).then((result) => {
-                        location.reload();
+                         location.reload();
+
                     })
                 } else {
                     $('#name').val('');
@@ -156,6 +167,7 @@
                     $('#harga').val('');
                     $('#statuspembayaran').val('');
                     $('#statuscheckin').val('');
+                 
                     Swal.fire({
                         title: 'Gagal',
                         text: "Checkin Gagal, Data Tidak Ditemukan",
@@ -163,7 +175,8 @@
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
                     }).then((result) => {
-                        location.reload();
+                          location.reload();
+
                     })
                 }
             },
