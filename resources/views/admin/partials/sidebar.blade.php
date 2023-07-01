@@ -27,13 +27,13 @@
 
             <li class="nav-item w-100">
                 <a class="nav-link" href="/paket">
-                    <i class="fe fe-users fe-16"></i>
+                    <i class="fe fe-archive fe-16 "></i>
                     <span class="ml-3 item-text">Data Paket</span>
                 </a>
             </li>
             <li class="nav-item w-100">
                 <a class="nav-link" href="/pendaftaran">
-                    <i class="fe fe-archive fe-16"></i>
+                    <i class="fe fe-users fe-16"></i>
                     <span class="ml-3 item-text">Data Pendaftaran</span>
                 </a>
             </li>

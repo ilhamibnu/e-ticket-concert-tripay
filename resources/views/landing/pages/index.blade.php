@@ -477,12 +477,12 @@
                                 <div class="contact-form-body">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-12">
-                                            <input type="text" name="email" id="contact-name" class="form-control"
+                                            <input type="text" name="email" value="{{ Session::get('cemail') }}" id="contact-name" class="form-control"
                                                 placeholder="Email" required>
                                         </div>
 
                                         <div class="col-lg-6 col-md-6 col-12">
-                                            <input type="tel" name="phone" id="contact-email" class="form-control"
+                                            <input type="tel" name="phone" value="{{ Session::get('cphone') }}" id="contact-email" class="form-control"
                                                 placeholder="Number Phone" required>
                                         </div>
                                     </div>
@@ -498,7 +498,7 @@
                             <br><br>
 
                             @if($errors->any())
-                                <div class="alert alert-danger alert-dismissible fade show">
+                                <!-- <div class="alert alert-danger alert-dismissible fade show">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                             aria-hidden="true">×</span>
                                     </button>
@@ -512,7 +512,7 @@
 
                                     @foreach($errors->all() as $error)
                                         <li>{{ $nomer++ }}. {{ $error }}</li>
-                                    @endforeach
+                                    @endforeach -->
                                 </div>
                             @elseif($datatiket)
                                 <div class="alert alert-success alert-dismissible fade show">
@@ -538,7 +538,7 @@
                 
                                                 <button class="btn btn-success" id="pay-button">Pilih Metode Pembayaran</button>
                                                 </div>
-                                                <li>Catatan : Setelah Memilih Metode Pembayaran, Anda Hanya Memiliki Waktu 30 Menit Untuk Menyelesaikan Pembayaran.</li>
+                                                <li>Catatan : Setelah Memilih Metode Pembayaran, Anda Hanya Memiliki Waktu 30 Menit Untuk Menyelesaikan Pembayaran. Apabila Pembayaran Telah Berhasil, Silahkan Check Ticket Anda Untuk Melihat QrCode Ticket.</li>
                                                 <li>Anda Ingin Batalkan Pemesanan Tiket ?</li>
                                         <div class="text-center align-center">
                                             <button class="btn btn-danger" data-toggle="modal"
@@ -761,17 +761,17 @@
                             <div class="ticket-form-body">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
-                                        <input type="text" name="name" id="ticket-form-name" class="form-control"
+                                        <input type="text" name="name" value="{{ Session::get('dname') }}" id="ticket-form-name" class="form-control"
                                             placeholder="Full name" required>
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-12">
-                                        <input type="email" name="email" id="ticket-form-email" class="form-control"
+                                        <input type="email" name="email" value="{{ Session::get('demail') }}" id="ticket-form-email" class="form-control"
                                             placeholder="Email address" required>
                                     </div>
                                 </div>
 
-                                <input type="tel" class="form-control" name="phone" placeholder="085-456-7890">
+                                <input type="tel" class="form-control" name="phone" value="{{ Session::get('dphone') }}" placeholder="085-456-7890">
 
                                 <h6>Choose Ticket Type</h6>
 
@@ -827,7 +827,6 @@
             title: 'Done!',
             text: 'Anda Berhasil Melakukan Pembelian Tiket!, Lakukan Pembayaran Pada Menu Check Tiket',
         });
-
     </script>
 @endif
 @if(Session::get('pakettidaktersedia'))
@@ -847,7 +846,7 @@
             title: 'Done!',
             text: 'Anda Berhasil Menghapus Pembelian Tiket!',
         });
-
+          
     </script>
 @endif
 @if(Session::get('error'))
@@ -857,17 +856,17 @@
             title: 'Oops...',
             text: 'Tiket Tidak Ditemukan!',
         });
-
+          
     </script>
 @endif
-@if(Session::get('datatiket'))
+@if($datatiket != null)
     <script>
         Swal.fire({
             icon: 'success',
             title: 'Done!',
             text: 'Tiket Ditemukan!',
         });
-
+         
     </script>
 @endif
 @if(Session::get('bataltiket'))
@@ -877,7 +876,47 @@
             title: 'Done!',
             text: 'Ticket Anda Berhasil Dibatalkan!',
         });
-
+      
+    </script>
+@endif
+@if(Session::get('sudahterdaftar'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email Dan Nomor Telepon Sudah Terdaftar!',
+        });
+          
+    </script>
+@endif
+@if(Session::get('emailterdaftar'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email Sudah Terdaftar!',
+        });
+          
+    </script>
+@endif
+@if(Session::get('phoneterdaftar'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Nomor Telepon Sudah Terdaftar!',
+        });
+          
+    </script>
+@endif
+@if(Session::get('paketkosong'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Pilih Paket Terlebih Dahulu!',
+        });
+          
     </script>
 @endif
 @endsection

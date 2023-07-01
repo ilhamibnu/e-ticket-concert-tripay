@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paket;
 use App\Models\Pendaftaran;
+use Illuminate\Support\Facades\Session;
 
 
 class LandingController extends Controller
@@ -28,23 +29,45 @@ class LandingController extends Controller
 
     public function daftar(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:tb_pendaftaran',
-            'phone' => 'required|unique:tb_pendaftaran',
-            'id_paket' => 'required',
-        ],[
-            'name.required' => 'Nama harus diisi',
-            'email.required' => 'Email harus diisi',
-            'email.email' => 'Email tidak valid',
-            'email.unique' => 'Email sudah terdaftar',
-            'phone.required' => 'Nomor telepon harus diisi',
-            'phone.unique' => 'Nomor telepon sudah terdaftar',
-            'id_paket.required' => 'Paket harus dipilih',
-        ]
-        );
+        Session::flash('dname', $request->name);
+        Session::flash('demail', $request->email);
+        Session::flash('dphone', $request->phone);
 
-        // cek persedian tiket
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required|email|unique:tb_pendaftaran',
+        //     'phone' => 'required|unique:tb_pendaftaran',
+        //     'id_paket' => 'required',
+        // ],
+        // [
+        //     'name.required' => 'Nama harus diisi',
+        //     'email.required' => 'Email harus diisi',
+        //     'email.email' => 'Email tidak valid',
+        //     'email.unique' => 'Email sudah terdaftar',
+        //     'phone.required' => 'Nomor telepon harus diisi',
+        //     'phone.unique' => 'Nomor telepon sudah terdaftar',
+        //     'id_paket.required' => 'Paket harus dipilih',
+        // ]
+        // );
+
+        // cek email dan nomor telepon
+
+        $cekemailphone = Pendaftaran::where('email', $request->email)->where('phone', $request->phone)->count();
+        $cekemail = Pendaftaran::where('email', $request->email)->count();
+        $cekphone = Pendaftaran::where('phone', $request->phone)->count();
+        
+        if($cekemailphone > 0){
+            return redirect('/')->with('sudahterdaftar', 'Email dan nomor telepon sudah terdaftar');
+        }elseif($cekemail > 0){
+            return redirect('/')->with('emailterdaftar', 'Email sudah terdaftar');
+        }elseif($cekphone > 0){
+            return redirect('/')->with('phoneterdaftar', 'Nomor telepon sudah terdaftar');
+        }elseif($request->id_paket == null){
+            return redirect('/')->with('paketkosong', 'Paket harus dipilih');
+        }
+        
+        else{
+              // cek persedian tiket
         $cek = Paket::find($request->id_paket);
         $cekpendaftaran = Pendaftaran::where('id_paket', $request->id_paket)->where('status', '=', 'paid')->count();
         if($cek->jumlah <= $cekpendaftaran){
@@ -71,12 +94,15 @@ class LandingController extends Controller
 
         }
        
+        }
     }
-
 
 
     public function caritiket(Request $request)
     {
+        Session::flash('cemail', $request->email);
+        Session::flash('cphone', $request->phone);
+
         $paket = Paket::where('status', '=', 'aktif')->get();
         foreach($paket as $p){
             $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count();
@@ -92,6 +118,7 @@ class LandingController extends Controller
         );
 
         $pendaftaran = Pendaftaran::with('paket')->where('email', $request->email)->where('phone', $request->phone)->first();
+      
 
       
 
@@ -139,6 +166,7 @@ class LandingController extends Controller
                 'snapToken' => $snapToken,
                 'datatiket' => $pendaftaran,
                 'paket' => $paket,
+              
                 //  'qrCode' => $qrCode
             ]);
                 
@@ -149,6 +177,7 @@ class LandingController extends Controller
                 'snapToken' => '',
                 'datatiket' => $pendaftaran,
                 'paket' => $paket,
+           
                 //  'qrCode' => $qrCode
             ]);
                 
