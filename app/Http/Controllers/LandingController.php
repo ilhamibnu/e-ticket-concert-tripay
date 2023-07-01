@@ -11,7 +11,7 @@ class LandingController extends Controller
 {
     public function index()
     {
-        $paket = Paket::all();
+        $paket = Paket::where('status', '=', 'aktif')->get();
         // cek sisa paket
         foreach($paket as $p){
             $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count();
@@ -77,7 +77,7 @@ class LandingController extends Controller
 
     public function caritiket(Request $request)
     {
-        $paket = Paket::all();
+        $paket = Paket::where('status', '=', 'aktif')->get();
         foreach($paket as $p){
             $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count();
         }

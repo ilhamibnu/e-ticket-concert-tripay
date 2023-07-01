@@ -25,6 +25,7 @@ class PaketController extends Controller
             'name' => 'required',
             'harga' => 'required|numeric|gte:0',
             'jumlah' => 'required|numeric|gte:0',
+            'status' => 'required'
         ],[
             'name.required' => 'Nama paket harus diisi',
             'harga.required' => 'Harga paket harus diisi',
@@ -33,12 +34,14 @@ class PaketController extends Controller
             'jumlah.required' => 'Jumlah paket harus diisi',
             'jumlah.numeric' => 'Jumlah paket harus berupa angka',
             'jumlah.gte' => 'Jumlah paket harus lebih dari 0',
+            'status.required' => 'Status paket harus diisi',
         ]);
 
         $paket = new Paket;
         $paket->name = $request->name;
         $paket->harga = $request->harga;
         $paket->jumlah = $request->jumlah;
+        $paket->status = $request->status;
         $paket->save();
         return redirect('/paket')->with('create', 'Paket berhasil ditambahkan');
     }
@@ -48,6 +51,7 @@ class PaketController extends Controller
             'name' => 'required',
             'harga' => 'required|numeric|gte:0',
             'jumlah' => 'required|numeric|gte:0',
+            'status' => 'required',
         ],[
             'name.required' => 'Nama paket harus diisi',
             'harga.required' => 'Harga paket harus diisi',
@@ -56,12 +60,14 @@ class PaketController extends Controller
             'jumlah.required' => 'Jumlah paket harus diisi',
             'jumlah.numeric' => 'Jumlah paket harus berupa angka',
             'jumlah.gte' => 'Jumlah paket harus lebih dari 0',
+            'status.required' => 'Status paket harus diisi',
         ]);
 
         $paket = Paket::find($request->id);
         $paket->name = $request->name;
         $paket->harga = $request->harga;
         $paket->jumlah = $request->jumlah;
+        $paket->status = $request->status;
         $paket->save();
         return redirect('/paket')->with('update', 'Paket berhasil diubah');
     }

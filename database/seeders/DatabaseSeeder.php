@@ -26,12 +26,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Paket 1',
             'harga' => 100000,
             'jumlah' => 500,
+            'status' => 'aktif',
          ]);
 
             Paket::create([
                 'name' => 'Paket 2',
                 'harga' => 200000,
                 'jumlah' => 500,
+                'status' => 'aktif',
             ]);
 
             User::create([

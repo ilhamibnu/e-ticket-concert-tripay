@@ -15,6 +15,7 @@ class Paket extends Model
         'name',
         'harga',
         'jumlah',
+        'status',
     ];
 
     public function pendaftaran()

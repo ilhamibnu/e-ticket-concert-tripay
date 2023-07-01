@@ -48,6 +48,7 @@
                                         <th>Sisa Paket</th>
                                         <th>Terjual</th>
                                         <th>Harga</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -63,6 +64,12 @@
                                             <td>{{ number_format($data->sisa) }}</td>
                                             <td>{{ number_format($data->jumlah - $data->sisa) }}</td>
                                             <td>Rp. {{ number_format($data->harga) }}</td>
+                                            <td>
+                                                @if($data->status == 'aktif')
+                                                    <span class="badge badge-success">Aktif</span>
+                                                @else
+                                                    <span class="badge badge-danger">Tidak Aktif</span>
+                                                @endif
                                             <td>
 
 
@@ -145,7 +152,20 @@
                                                                     name="jumlah" class="form-control"
                                                                     id="recipient-name">
                                                             </div>
-
+                                                            <div class="form-group">
+                                                                <label for="example-select">Status</label>
+                                                                <select name="status" class="form-control"
+                                                                    id="example-select">
+                                                                    @if ($data->status == 'aktif')
+                                                                        <option selected value="aktif">Aktif</option>
+                                                                        <option value="tidakaktif">Tidak Aktif</option>
+                                                                    @else
+                                                                        <option value="aktif">Aktif</option>
+                                                                        <option selected value="tidakaktif">Tidak
+                                                                            Aktif</option>
+                                                                    @endif
+                                                                </select>
+                                                            </div>
 
 
                                                         </div>
@@ -196,8 +216,13 @@
                                                     <input type="text" value="" name="jumlah" class="form-control"
                                                         id="recipient-name" required>
                                                 </div>
-
-
+                                                <div class="form-group mb-3">
+                                                    <label for="example-select">Status</label>
+                                                    <select name="status" class="form-control" id="example-select">
+                                                        <option value="aktif">Aktif</option>
+                                                        <option value="tidakaktif">Tidak Aktif</option>
+                                                    </select>
+                                                </div>
 
                                             </div>
                                             <div class="modal-footer">

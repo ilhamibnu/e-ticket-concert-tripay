@@ -50,7 +50,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_5">Pricing</a>
+                        <a class="nav-link click-scroll" href="#section_5">Ticket</a>
                     </li>
 
                     <li class="nav-item">
@@ -393,8 +393,15 @@
             <div class="row">
 
                 <div class="col-lg-8 col-12 mx-auto">
-                    <h2 class="text-center mb-4">Plans, you' love</h2>
+                @if ($paket->count() == 0)
+                <h2 class="text-center mb-4">Mohon Maaf Tiket Tidak Tersedia</h2>
+                @else
+                <h2 class="text-center mb-4">Plans, you' love</h2>
+                       @endif
+                    
                 </div>
+
+              
 
                 @foreach($paket as $item)
                     <div class="col-lg-6 col-12">
@@ -434,7 +441,6 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </section>

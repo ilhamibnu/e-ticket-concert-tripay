@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('harga');
             $table->integer('jumlah');
+            $table->enum('status', ['aktif', 'tidakaktif']);
             $table->timestamps();
         });
     }
