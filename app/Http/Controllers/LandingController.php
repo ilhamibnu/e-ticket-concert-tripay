@@ -13,9 +13,12 @@ class LandingController extends Controller
     public function index()
     {
         $paket = Paket::where('status', '=', 'aktif')->get();
+
         // cek sisa paket
+        // jumlah paket dikurangi jumlah pendaftaran dengan status paid dan pending
+
         foreach($paket as $p){
-            $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count();
+            $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count()-Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'pending')->count();
         }
         $pendaftaran = Pendaftaran::find(0);
 
@@ -69,7 +72,7 @@ class LandingController extends Controller
         else{
               // cek persedian tiket
         $cek = Paket::find($request->id_paket);
-        $cekpendaftaran = Pendaftaran::where('id_paket', $request->id_paket)->where('status', '=', 'paid')->count();
+        $cekpendaftaran = Pendaftaran::where('id_paket', $request->id_paket)->where('status', '=', 'paid')->count()-Pendaftaran::where('id_paket', $request->id_paket)->where('status', '=', 'pending')->count();
         if($cek->jumlah <= $cekpendaftaran){
             return redirect('/')->with('pakettidaktersedia', 'Paket sudah penuh');
         }else{
@@ -105,7 +108,7 @@ class LandingController extends Controller
 
         $paket = Paket::where('status', '=', 'aktif')->get();
         foreach($paket as $p){
-            $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count();
+            $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count()-Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'pending')->count();
         }
         $request->validate([
             'email' => 'required|email',

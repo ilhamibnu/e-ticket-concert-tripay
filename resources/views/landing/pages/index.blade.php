@@ -822,6 +822,7 @@
 @section('sweetalert')
 @if(Session::get('create'))
     <script>
+        window.location.href = "/#section_6";
         Swal.fire({
             icon: 'success',
             title: 'Done!',
@@ -830,7 +831,9 @@
     </script>
 @endif
 @if(Session::get('pakettidaktersedia'))
+
     <script>
+        window.location.href = "/#section_5";
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -851,6 +854,7 @@
 @endif
 @if(Session::get('error'))
     <script>
+        window.location.href = "/#section_6";
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -861,6 +865,7 @@
 @endif
 @if($datatiket != null)
     <script>
+        window.location.href = "/#section_6";
         Swal.fire({
             icon: 'success',
             title: 'Done!',
@@ -881,6 +886,7 @@
 @endif
 @if(Session::get('sudahterdaftar'))
     <script>
+        window.location.href = "/#section_5";
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -891,6 +897,7 @@
 @endif
 @if(Session::get('emailterdaftar'))
     <script>
+        window.location.href = "/#section_5";
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -901,6 +908,7 @@
 @endif
 @if(Session::get('phoneterdaftar'))
     <script>
+        window.location.href = "/#section_5";
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -911,6 +919,7 @@
 @endif
 @if(Session::get('paketkosong'))
     <script>
+        window.location.href = "/#section_5";
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
