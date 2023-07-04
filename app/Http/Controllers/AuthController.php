@@ -33,8 +33,7 @@ class AuthController extends Controller
         }else{
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
-
-                return redirect()->intended('/checkin2')->with('loginberhasil', 'login berhasil');
+                return redirect()->intended('/checkin2')->with('login', 'login berhasil');
             } else {
                 return redirect()->intended('/login')->with('loginerror', 'login error');
             } 

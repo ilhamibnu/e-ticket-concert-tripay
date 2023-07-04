@@ -69,9 +69,11 @@
                                             <td>
 
                                                 @if($data->status == 'paid')
-                                                    <span class="badge badge-success">Lunas</span>
+                                                    <span class="badge badge-success">Paid</span>
+                                                @elseif($data->status == 'belumpilihpembayaran')
+                                                    <span class="badge badge-warning">Belum Pilih Pembayaran</span>
                                                 @else
-                                                    <span class="badge badge-danger">Belum Bayar</span>
+                                                    <span class="badge badge-danger">Pending</span>
                                                 @endif
                                         </tr>
                                     @endforeach

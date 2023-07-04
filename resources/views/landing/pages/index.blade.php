@@ -842,6 +842,18 @@
 
     </script>
 @endif
+@if(Session::get('pakethabis'))
+
+    <script>
+        window.location.href = "/#section_6";
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Anda Tidak Segera Melakukan Pembayaran!, Tiket Sudah Habis!, Data Anda Telah Dihapus, Supaya Anda Dapat Melakukan Pemesanan Tiket Lain Yang Masih Tersedia',
+        });
+
+    </script>
+@endif
 @if(Session::get('delete'))
     <script>
         Swal.fire({

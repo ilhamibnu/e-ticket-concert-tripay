@@ -300,6 +300,16 @@
 
     </script>
 @endif
+@if(Session::get('login'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Welcome',
+            text: 'Berhasil Login',
+        });
+
+    </script>
+@endif
 @if(Session::get('datatidakada'))
     <script>
         Swal.fire({

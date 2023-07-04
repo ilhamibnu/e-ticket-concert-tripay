@@ -88,7 +88,7 @@ class LandingController extends Controller
             $pendaftaran->bank = '';
             $pendaftaran->va = '';
             $pendaftaran->kadaluarsa = '';
-            $pendaftaran->status = 'pending';
+            $pendaftaran->status = 'belumpilihpembayaran';
             $pendaftaran->checkin = 'belum';
             $pendaftaran->id_paket = $request->id_paket;
             $pendaftaran->save();
@@ -122,9 +122,6 @@ class LandingController extends Controller
 
         $pendaftaran = Pendaftaran::with('paket')->where('email', $request->email)->where('phone', $request->phone)->first();
       
-
-      
-
         if($pendaftaran){
             
         $cariid = Pendaftaran::where('email', $request->email)->where('phone', $request->phone)->first();
@@ -133,7 +130,7 @@ class LandingController extends Controller
             
             if($cariid->bank == null){
                 
-                  \Midtrans\Config::$serverKey = config('midtrans.server_key');
+            \Midtrans\Config::$serverKey = config('midtrans.server_key');
             // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
             \Midtrans\Config::$isProduction = false;
     
@@ -162,29 +159,30 @@ class LandingController extends Controller
                     ),
                 ),
             );
-           
-            $snapToken = \Midtrans\Snap::getSnapToken($params);
-            
-            return view('landing.pages.index', [
-                'snapToken' => $snapToken,
-                'datatiket' => $pendaftaran,
-                'paket' => $paket,
-              
-                //  'qrCode' => $qrCode
-            ]);
-                
-      
+
+            // cek persedian tiket
+
+            $cekpendaftaran = Pendaftaran::where('id_paket', $cariid->id_paket)->where('status', '=', 'paid')->count()-Pendaftaran::where('id_paket', $cariid->id_paket)->where('status', '=', 'pending')->count();
+            if($datapaket->jumlah <= $cekpendaftaran){
+                $cariid->delete();
+                return redirect('/')->with('pakethabis', 'Paket sudah penuh');
+            }else{
+
+                $snapToken = \Midtrans\Snap::getSnapToken($params);
+                return view('landing.pages.index', [
+                    'snapToken' => $snapToken,
+                    'datatiket' => $pendaftaran,
+                    'paket' => $paket,
+                ]);
+            }
+
             }else{
                 
                 return view('landing.pages.index', [
                 'snapToken' => '',
                 'datatiket' => $pendaftaran,
                 'paket' => $paket,
-           
-                //  'qrCode' => $qrCode
             ]);
-                
-          
             }
               
 
