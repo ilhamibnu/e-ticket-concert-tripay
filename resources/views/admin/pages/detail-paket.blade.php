@@ -16,22 +16,21 @@
                     <div class="card shadow">
                         <div class="card-body">
                             @if($errors->any())
-                                <div class="alert alert-danger alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                            aria-hidden="true">×</span>
-                                    </button>
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                                </button>
 
 
-                                    <?php
-                                        
+                                <?php
+
                                         $nomer = 1;
-                                        
+
                                         ?>
 
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $nomer++ }}. {{ $error }}</li>
-                                    @endforeach
-                                </div>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $nomer++ }}. {{ $error }}</li>
+                                @endforeach
+                            </div>
                             @endif
                             <!-- table -->
                             <table class="table datatables responsive nowrap" style="width:100%" id="dataTable-1">
@@ -55,27 +54,29 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $no = 1;
+                                    $no = 1;
                                     @endphp
                                     @foreach($pendaftaran as $data)
-                                        <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $data->name }}</td>
-                                            <td>{{ $data->email }}</td>
-                                            <td>{{ $data->phone }}</td>
-                                            <td>{{ $data->tiket }}</td>
-                                            <td>{{ $data->paket->name }}</td>
-                                            <td>Rp. {{ number_format($data->paket->harga) }}</td>
-                                            <td>
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->name }}</td>
+                                        <td>{{ $data->email }}</td>
+                                        <td>{{ $data->phone }}</td>
+                                        <td>{{ $data->tiket }}</td>
+                                        <td>{{ $data->paket->name }}</td>
+                                        <td>Rp. {{ number_format($data->paket->harga) }}</td>
+                                        <td>
 
-                                                @if($data->status == 'paid')
-                                                    <span class="badge badge-success">Paid</span>
-                                                @elseif($data->status == 'belumpilihpembayaran')
-                                                    <span class="badge badge-warning">Belum Pilih Pembayaran</span>
-                                                @else
-                                                    <span class="badge badge-danger">Pending</span>
-                                                @endif
-                                        </tr>
+                                            @if($data->status == 'paid')
+                                            <span class="badge badge-success">Paid</span>
+                                            @elseif($data->status == 'belumpilihpembayaran')
+                                            <span class="badge badge-warning">Belum Pilih Pembayaran</span>
+                                            @elseif($data->status == 'expire')
+                                            <span class="badge badge-secondary">Expire</span>
+                                            @else
+                                            <span class="badge badge-danger">Pending</span>
+                                            @endif
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -100,14 +101,14 @@
 
 
         lengthMenu: [
-            [10, 25, 50, -1],
-            ['10 rows', '25 rows', '50 rows', 'Show all']
+            [10, 25, 50, -1]
+            , ['10 rows', '25 rows', '50 rows', 'Show all']
         ],
 
         buttons: [{
-                extend: 'colvis',
-                className: 'btn btn-primary btn-sm',
-                text: 'Column Visibility',
+                extend: 'colvis'
+                , className: 'btn btn-primary btn-sm'
+                , text: 'Column Visibility',
                 // columns: ':gt(0)'
 
 
@@ -115,9 +116,9 @@
 
             {
 
-                extend: 'pageLength',
-                className: 'btn btn-primary btn-sm',
-                text: 'Page Length',
+                extend: 'pageLength'
+                , className: 'btn btn-primary btn-sm'
+                , text: 'Page Length',
                 // columns: ':gt(0)'
             },
 
@@ -125,9 +126,9 @@
             // 'colvis', 'pageLength',
 
             {
-                extend: 'excel',
-                className: 'btn btn-primary btn-sm',
-                exportOptions: {
+                extend: 'excel'
+                , className: 'btn btn-primary btn-sm'
+                , exportOptions: {
                     columns: [0, ':visible']
                 }
             },
@@ -140,17 +141,17 @@
             //     }
             // },
             {
-                extend: 'pdf',
-                className: 'btn btn-primary btn-sm',
-                exportOptions: {
+                extend: 'pdf'
+                , className: 'btn btn-primary btn-sm'
+                , exportOptions: {
                     columns: [0, ':visible']
                 }
             },
 
             {
-                extend: 'print',
-                className: 'btn btn-primary btn-sm',
-                exportOptions: {
+                extend: 'print'
+                , className: 'btn btn-primary btn-sm'
+                , exportOptions: {
                     columns: [0, ':visible']
                 }
             },
@@ -158,8 +159,8 @@
             // 'pageLength', 'colvis',
             // 'copy', 'csv', 'excel', 'print'
 
-        ],
-    });
+        ]
+    , });
 
 </script>
 @endsection
