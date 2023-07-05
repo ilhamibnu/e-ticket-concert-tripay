@@ -14,4 +14,11 @@ class PendaftaranController extends Controller
             'pendaftaran' => $pendaftaran,
         ]);
     }
+
+    public function destroy($id)
+    {
+        $pendaftaran = Pendaftaran::find($id);
+        $pendaftaran->delete();
+        return redirect('/pendaftaran')->with('delete', 'Pendaftaran berhasil dihapus');
+    }
 }

@@ -28,15 +28,15 @@ class AuthController extends Controller
         $user = User::where('email', $credentials['email'])->first();
 
         if ($user == null) {
-              
+
             return redirect()->intended('/login')->with('failed', 'login error');
         }else{
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
-                return redirect()->intended('/checkin2')->with('login', 'login berhasil');
+                return redirect()->intended('/checkin')->with('login', 'login berhasil');
             } else {
                 return redirect()->intended('/login')->with('loginerror', 'login error');
-            } 
+            }
 
         }
 

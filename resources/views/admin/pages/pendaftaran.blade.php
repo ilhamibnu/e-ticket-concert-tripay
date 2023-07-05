@@ -49,6 +49,7 @@
                                         <th>Harga</th>
                                         <th>Status</th>
                                         <th>Checkin</th>
+                                        <th>Action</th>
 
 
 
@@ -85,7 +86,37 @@
                                             @else
                                             <span class="badge badge-danger">Belum Checkin</span>
                                             @endif
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{ $data->id }}">Delete</button>
+                                        </td>
                                     </tr>
+
+                                    <!-- Delete Modal -->
+                                    <div class="modal fade" id="deleteModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="defaultModalLabel">Delete Modal</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Yakin Ingin Menghapus Data {{ $data->name }}?
+                                                </div>
+                                                <form action="/pendaftaran/{{ $data->id }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn mb-2 btn-success" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn mb-2 btn-danger">Delete</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     @endforeach
                                 </tbody>
                             </table>

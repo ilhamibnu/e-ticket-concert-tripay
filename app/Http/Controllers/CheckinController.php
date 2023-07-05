@@ -10,25 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class CheckinController extends Controller
 {
-    // public function index()
-    // {
-    //     $checkin = DB::table('tb_checkin')
-    //         ->join('tb_pendaftaran', 'tb_checkin.id_pendaftaran', '=', 'tb_pendaftaran.id')
-    //         ->join('tb_paket', 'tb_pendaftaran.id_paket', '=', 'tb_paket.id')
-    //         ->select('tb_checkin.status', 'tb_checkin.id', 'tb_pendaftaran.name', 'tb_pendaftaran.email',  'tb_pendaftaran.phone', 'tb_paket.name as namepaket', 'tb_paket.harga')
-    //         ->get();
-        
-    //     return view('admin.pages.checkin',[
-    //         'checkin' => $checkin
-    //     ]);
-    // }
-
-    public function index2()
+    public function index()
     {
-        return view('admin.pages.checkin2');
+        return view('admin.pages.checkin');
     }
 
-    public function checkin2(Request $request){
+    public function checkin(Request $request){
 
         $datapendaftaran = Pendaftaran::with('paket')->where('tiket', $request->pendaftaran_id)->first();
 
@@ -70,39 +57,4 @@ class CheckinController extends Controller
         }
 
     }
-
-    // public function checkin(Request $request)
-    // {
-
-    //     $checkin = DB::table('tb_checkin')
-    //         ->where('id_pendaftaran', $request->pendaftaran_id)
-    //         ->get();
-
-    //     $cekpembayaranid = Pendaftaran::find($request->pendaftaran_id);
-
-    //     if($cekpembayaranid == null){
-    //         response()->json([
-    //             'success' => false,
-    //             'message' => 'Checkin Gagal'
-    //         ]);
-    //     }
-    //     else{
-    //         if (count($checkin) > 0) {
-    //            response()->json([
-    //             'success' => false,
-    //             'message' => 'Checkin Gagal'
-    //         ]);
-    //         }else{
-    //         $checkin = new Checkin;
-    //         $checkin->id_pendaftaran = $request->pendaftaran_id;
-    //         $checkin->status = 'Done';
-    //         $checkin->save();
-
-    //         response()->json([
-    //             'success' => true,
-    //             'message' => 'Checkin Berhasil'
-    //         ]);
-    //         }
-    //     }
-    // }
 }

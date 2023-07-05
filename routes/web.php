@@ -28,11 +28,8 @@ route::get('/login', [AuthController::class, 'index'])->middleware('IsStay');
 route::post('/login', [AuthController::class, 'authenticate'])->middleware('IsStay');
 route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');
 
-// Route::get('/checkin', [CheckinController::class, 'index'])->middleware('IsLogin');
-// Route::post('/checkin', [CheckinController::class, 'checkin'])->middleware('IsLogin');
-
-Route::get('/checkin2', [CheckinController::class, 'index2'])->middleware('IsLogin');
-Route::post('/checkin2', [CheckinController::class, 'checkin2'])->middleware('IsLogin');
+Route::get('/checkin', [CheckinController::class, 'index'])->middleware('IsLogin');
+Route::post('/checkin', [CheckinController::class, 'checkin'])->middleware('IsLogin');
 
 Route::get('/paket', [PaketController::class, 'index'])->middleware('IsLogin');
 Route::get('/paket/{id}', [PaketController::class, 'detailpaket'])->middleware('IsLogin');
@@ -41,3 +38,4 @@ Route::put('/paket/{id}', [PaketController::class, 'update'])->middleware('IsLog
 Route::delete('/paket/{id}', [PaketController::class, 'destroy'])->middleware('IsLogin');
 
 Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->middleware('IsLogin');
+Route::delete('/pendaftaran/{id}', [PendaftaranController::class, 'destroy'])->middleware('IsLogin');

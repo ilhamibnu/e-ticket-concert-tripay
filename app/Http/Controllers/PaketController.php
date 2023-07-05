@@ -11,10 +11,10 @@ class PaketController extends Controller
     public function index()
     {
         $paket = Paket::all();
-        foreach($paket as $p){
+        foreach ($paket as $p) {
             $p->sisa = $p->jumlah - Pendaftaran::where('id_paket', $p->id)->where('status', '=', 'paid')->count();
         }
-        return view('admin.pages.paket',[
+        return view('admin.pages.paket', [
             'paket' => $paket,
         ]);
     }
@@ -26,7 +26,7 @@ class PaketController extends Controller
             'harga' => 'required|numeric|gte:0',
             'jumlah' => 'required|numeric|gte:0',
             'status' => 'required'
-        ],[
+        ], [
             'name.required' => 'Nama paket harus diisi',
             'harga.required' => 'Harga paket harus diisi',
             'harga.numeric' => 'Harga paket harus berupa angka',
@@ -46,13 +46,14 @@ class PaketController extends Controller
         return redirect('/paket')->with('create', 'Paket berhasil ditambahkan');
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $request->validate([
             'name' => 'required',
             'harga' => 'required|numeric|gte:0',
             'jumlah' => 'required|numeric|gte:0',
             'status' => 'required',
-        ],[
+        ], [
             'name.required' => 'Nama paket harus diisi',
             'harga.required' => 'Harga paket harus diisi',
             'harga.numeric' => 'Harga paket harus berupa angka',
@@ -63,28 +64,39 @@ class PaketController extends Controller
             'status.required' => 'Status paket harus diisi',
         ]);
 
-        $paket = Paket::find($request->id);
-        $paket->name = $request->name;
-        $paket->harga = $request->harga;
-        $paket->jumlah = $request->jumlah;
-        $paket->status = $request->status;
-        $paket->save();
-        return redirect('/paket')->with('update', 'Paket berhasil diubah');
+        $jumlah_pendaftar = Pendaftaran::where('id_paket', $id)->where('status', '=', 'paid')->count() - Pendaftaran::where('id_paket', $id)->where('status', '=', 'pending')->count();
+        if ($request->jumlah < $jumlah_pendaftar) {
+            return redirect('/paket')->with('error-jumlah', 'Jumlah paket tidak boleh kurang dari jumlah terjual');
+        } else {
+            $paket = Paket::find($id);
+            $paket->name = $request->name;
+            $paket->harga = $request->harga;
+            $paket->jumlah = $request->jumlah;
+            $paket->status = $request->status;
+            $paket->save();
+            return redirect('/paket')->with('update', 'Paket berhasil diubah');
+        }
     }
 
     public function destroy($id)
     {
-        $paket = Paket::find($id);
-        $paket->delete();
-        return redirect('/paket')->with('delete', 'Paket berhasil dihapus');
+
+        $cek = Pendaftaran::where('id_paket', $id)->count();
+        if ($cek > 0) {
+            return redirect('/paket')->with('error-relasi', 'Paket tidak dapat dihapus karena sudah terdaftar');
+        } else {
+
+            $paket = Paket::find($id);
+            $paket->delete();
+            return redirect('/paket')->with('delete', 'Paket berhasil dihapus');
+        }
     }
 
     public function detailpaket($id)
     {
         $pendaftaran = Pendaftaran::with('paket')->where('id_paket', $id)->get();
-        return view('admin.pages.detail-paket',[
+        return view('admin.pages.detail-paket', [
             'pendaftaran' => $pendaftaran,
         ]);
     }
-    
 }
