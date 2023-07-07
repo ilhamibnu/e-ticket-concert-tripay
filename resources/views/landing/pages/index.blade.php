@@ -398,10 +398,10 @@
                 @else
                 <h2 class="text-center mb-4">Plans, you' love</h2>
                        @endif
-                    
+
                 </div>
 
-              
+
 
                 @foreach($paket as $item)
                     <div class="col-lg-6 col-12">
@@ -505,9 +505,9 @@
 
 
                                     <?php
-                                        
+
                                         $nomer = 1;
-                                        
+
                                         ?>
 
                                     @foreach($errors->all() as $error)
@@ -528,14 +528,14 @@
                                     <li>Status Pembayaran : {{ $datatiket->status }}</li>
                                     <br>
                                     <blade
-                                    @if ($datatiket->status == 'pending' && $datatiket->bank == '')
+                                    @if ($datatiket->status == 'belumpilihpembayaran' && $datatiket->bank == '')
                                         <div class="text-center align-center">
                                             <li>
                                                 Lakukan Pembayaran Lebih Dulu Yaa...
 
                                             </li>
                                             <div class="text-center align-center">
-                
+
                                                 <button class="btn btn-success" id="pay-button">Pilih Metode Pembayaran</button>
                                                 </div>
                                                 <li>Catatan : Setelah Memilih Metode Pembayaran, Anda Hanya Memiliki Waktu 30 Menit Untuk Menyelesaikan Pembayaran. Apabila Pembayaran Telah Berhasil, Silahkan Check Ticket Anda Untuk Melihat QrCode Ticket.</li>
@@ -586,10 +586,10 @@
                                             </li>
                                             <li>Bank : {{ $datatiket->bank }}</li>
                                             <li>Nomor Virtual Account : {{ $datatiket->va }}</li>
-                                            <li>Kadalursa : {{ $datatiket->kadaluarsa }}</li>
-                                            
+                                            <li>Kadaluarsa : {{ $datatiket->kadaluarsa }}</li>
+
                                             <br>
-                                           
+
                                         </div>
                                         @elseif ($datatiket->status == 'expire' && $datatiket->bank != '')
 
@@ -600,8 +600,8 @@
                                         </li>
                                         <li>Bank : {{ $datatiket->bank }}</li>
                                         <li>Nomor Virtual Account : {{ $datatiket->va }}</li>
-                                        <li>Kadalursa : {{ $datatiket->kadaluarsa }}</li>
-                                        
+                                        <li>Kadaluarsa : {{ $datatiket->kadaluarsa }}</li>
+
                                         <br>
                                         <li>Apabila Pembayaran Anda Kadaluarsa, Silahkan Lakukan Pembatan Tiket, Kemudian
                                             Pesan Kembali</li>
@@ -649,7 +649,7 @@
                                                     Pembayaran Anda Kadaluarsa
 
                                                 </li>
-                                            
+
                                                 <br>
                                                 <li>Apabila Pembayaran Anda Kaluarsa, Silahkan Lakukan Pembatan Tiket, Kemudian
                                                     Pesan Kembali</li>
@@ -692,13 +692,13 @@
                                             </div>
 
                                     @elseif ($datatiket->status == 'paid')
-                                   
+
                                         <li>QrCode Tiket : </li>
                                         <br>
                                         <div class="text-center align-center">
                                         {!! DNS2D::getBarcodeHTML($datatiket->tiket, 'QRCODE') !!}
                                         </div>
-                                     
+
                                     @endif
                                 </div>
                             @endif
@@ -744,9 +744,9 @@
 
 
                                 <?php
-                                    
+
                                     $nomer = 1;
-                                    
+
                                     ?>
 
                                 @foreach($errors->all() as $error)
@@ -861,7 +861,7 @@
             title: 'Done!',
             text: 'Anda Berhasil Menghapus Pembelian Tiket!',
         });
-          
+
     </script>
 @endif
 @if(Session::get('error'))
@@ -872,7 +872,7 @@
             title: 'Oops...',
             text: 'Tiket Tidak Ditemukan!',
         });
-          
+
     </script>
 @endif
 @if($datatiket != null)
@@ -883,7 +883,7 @@
             title: 'Done!',
             text: 'Tiket Ditemukan!',
         });
-         
+
     </script>
 @endif
 @if(Session::get('bataltiket'))
@@ -893,7 +893,7 @@
             title: 'Done!',
             text: 'Ticket Anda Berhasil Dibatalkan!',
         });
-      
+
     </script>
 @endif
 @if(Session::get('sudahterdaftar'))
@@ -904,7 +904,7 @@
             title: 'Oops...',
             text: 'Email Dan Nomor Telepon Sudah Terdaftar!',
         });
-          
+
     </script>
 @endif
 @if(Session::get('emailterdaftar'))
@@ -915,7 +915,7 @@
             title: 'Oops...',
             text: 'Email Sudah Terdaftar!',
         });
-          
+
     </script>
 @endif
 @if(Session::get('phoneterdaftar'))
@@ -926,7 +926,7 @@
             title: 'Oops...',
             text: 'Nomor Telepon Sudah Terdaftar!',
         });
-          
+
     </script>
 @endif
 @if(Session::get('paketkosong'))
@@ -937,7 +937,7 @@
             title: 'Oops...',
             text: 'Pilih Paket Terlebih Dahulu!',
         });
-          
+
     </script>
 @endif
 @endsection
