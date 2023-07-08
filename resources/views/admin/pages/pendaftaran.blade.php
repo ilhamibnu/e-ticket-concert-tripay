@@ -204,47 +204,15 @@
 
 </script>
 @endsection
-
-{{-- @section('sweetalert')
-@if(Session::get('update'))
-    <script>
-        Swal.fire(
-            'Success',
-            'Data Berhasil Di Update',
-            'success'
-        )
-
-    </script>
-@endif
+@section('sweetalert')
 @if(Session::get('delete'))
-    <script>
-        Swal.fire(
-            'Success',
-            'Data Berhasil Di Hapus',
-            'success'
-        )
+<script>
+    Swal.fire({
+        icon: 'success'
+        , title: 'Good'
+        , text: 'Data Berhasil Di Hapus'
+    , });
 
-    </script>
+</script>
 @endif
-@if(Session::get('create'))
-    <script>
-        Swal.fire(
-            'Success',
-            'Data Berhasil Ditambahkan',
-            'success'
-        )
-
-    </script>
-@endif
-@if(Session::get('gagal'))
-    <script>
-        Swal.fire(
-            'Success',
-            'Data Gagal Ditambahkan',
-            'error'
-        )
-
-    </script>
-@endif
-
-@endsection--}}
+@endsection
