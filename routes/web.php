@@ -21,7 +21,7 @@ use App\Http\Controllers\AuthController;
 Route::get('/', [LandingController::class, 'index']);
 Route::get('/index', [LandingController::class, 'index']);
 Route::post('/daftar', [LandingController::class, 'daftar']);
-Route::post('/', [LandingController::class, 'caritiket']);
+Route::post('/', [LandingController::class, 'caritiket'])->middleware('Modify');
 Route::delete('/bataltiket/{id}', [LandingController::class, 'bataltiket']);
 
 route::get('/login', [AuthController::class, 'index'])->middleware('IsStay');

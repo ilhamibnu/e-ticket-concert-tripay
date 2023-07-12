@@ -33,53 +33,55 @@
                             </div>
                             @endif
                             <!-- table -->
-                            <table class="table datatables responsive nowrap" style="width:100%" id="dataTable-1">
-                                <div class="align-right text-right mb-3">
+                            <div class="table-responsive">
+                                <table class="table datatables table-hover responsive nowrap" style="width:100%" id="dataTable-1">
+                                    <div class="align-right text-right mb-3">
 
-                                </div>
+                                    </div>
 
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Tiket</th>
-                                        <th>Paket</th>
-                                        <th>Harga</th>
-                                        <th>Status</th>
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Tiket</th>
+                                            <th>Paket</th>
+                                            <th>Harga</th>
+                                            <th>Status</th>
 
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
-                                    $no = 1;
-                                    @endphp
-                                    @foreach($pendaftaran as $data)
-                                    <tr>
-                                        <td>{{ $no++ }}</td>
-                                        <td>{{ $data->name }}</td>
-                                        <td>{{ $data->email }}</td>
-                                        <td>{{ $data->phone }}</td>
-                                        <td>{{ $data->tiket }}</td>
-                                        <td>{{ $data->paket->name }}</td>
-                                        <td>Rp. {{ number_format($data->paket->harga) }}</td>
-                                        <td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $no = 1;
+                                        @endphp
+                                        @foreach($pendaftaran as $data)
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $data->name }}</td>
+                                            <td>{{ $data->email }}</td>
+                                            <td>{{ $data->phone }}</td>
+                                            <td>{{ $data->tiket }}</td>
+                                            <td>{{ $data->paket->name }}</td>
+                                            <td>Rp. {{ number_format($data->paket->harga) }}</td>
+                                            <td>
 
-                                            @if($data->status == 'paid')
-                                            <span class="badge badge-success">Paid</span>
-                                            @elseif($data->status == 'belumpilihpembayaran')
-                                            <span class="badge badge-warning">Belum Pilih Pembayaran</span>
-                                            @elseif($data->status == 'expire')
-                                            <span class="badge badge-secondary">Expire</span>
-                                            @else
-                                            <span class="badge badge-danger">Pending</span>
-                                            @endif
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                                @if($data->status == 'paid')
+                                                <span class="badge badge-success">Paid</span>
+                                                @elseif($data->status == 'belumpilihpembayaran')
+                                                <span class="badge badge-warning">Belum Pilih Pembayaran</span>
+                                                @elseif($data->status == 'expire')
+                                                <span class="badge badge-secondary">Expire</span>
+                                                @else
+                                                <span class="badge badge-danger">Pending</span>
+                                                @endif
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div> <!-- simple table -->

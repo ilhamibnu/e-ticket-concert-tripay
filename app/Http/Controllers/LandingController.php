@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Paket;
 use App\Models\Pendaftaran;
 use Illuminate\Support\Facades\Session;
+use Jenssegers\Agent\Agent;
 
 
 class LandingController extends Controller
@@ -134,6 +135,17 @@ class LandingController extends Controller
 
             if ($cariid->bank == null) {
 
+                $agent = new Agent();
+
+                // Deteksi User-Agent
+                $userAgent = $agent->getUserAgent();
+
+                // Periksa jika User-Agent mengindikasikan Android atau iOS
+                if ($agent->isAndroidOS() || $agent->isiOS()) {
+                    // Set User-Agent ke Windows
+                    $agent->setUserAgent('Windows');
+                }
+
                 \Midtrans\Config::$serverKey = config('midtrans.server_key');
                 // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
                 \Midtrans\Config::$isProduction = false;
@@ -171,7 +183,6 @@ class LandingController extends Controller
                     $cariid->delete();
                     return redirect('/')->with('pakethabis', 'Paket sudah penuh');
                 } else {
-
                     $snapToken = \Midtrans\Snap::getSnapToken($params);
                     return view('landing.pages.index', [
                         'snapToken' => $snapToken,

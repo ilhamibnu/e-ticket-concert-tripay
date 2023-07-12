@@ -33,93 +33,95 @@
                             </div>
                             @endif
                             <!-- table -->
-                            <table class="table datatables responsive nowrap" style="width:100%" id="dataTable-1">
-                                <div class="align-right text-right mb-3">
+                            <div class="table-responsive">
+                                <table class="table datatables table-hover responsive nowrap" style="width:100%" id="dataTable-1">
+                                    <div class="align-right text-right mb-3">
 
-                                </div>
-
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Tiket</th>
-                                        <th>Paket</th>
-                                        <th>Harga</th>
-                                        <th>Status</th>
-                                        <th>Checkin</th>
-                                        <th>Action</th>
-
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
-                                    $no = 1;
-                                    @endphp
-                                    @foreach($pendaftaran as $data)
-                                    <tr>
-                                        <td>{{ $no++ }}</td>
-                                        <td>{{ $data->name }}</td>
-                                        <td>{{ $data->email }}</td>
-                                        <td>{{ $data->phone }}</td>
-                                        <td>{{ $data->tiket }}</td>
-                                        <td>{{ $data->paket->name }}</td>
-                                        <td>Rp. {{ number_format($data->paket->harga) }}</td>
-                                        <td>
-
-                                            @if($data->status == 'paid')
-                                            <span class="badge badge-success">Paid</span>
-                                            @elseif($data->status == 'belumpilihpembayaran')
-                                            <span class="badge badge-warning">Belum Pilih Pembayaran</span>
-                                            @elseif($data->status == 'expire')
-                                            <span class="badge badge-secondary">Expire</span>
-                                            @else
-                                            <span class="badge badge-danger">Pending</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if($data->checkin == 'sudah')
-                                            <span class="badge badge-success">Checkin</span>
-                                            @else
-                                            <span class="badge badge-danger">Belum Checkin</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{ $data->id }}">Delete</button>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Delete Modal -->
-                                    <div class="modal fade" id="deleteModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="defaultModalLabel">Delete Modal</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Yakin Ingin Menghapus Data {{ $data->name }}?
-                                                </div>
-                                                <form action="/pendaftaran/{{ $data->id }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn mb-2 btn-success" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn mb-2 btn-danger">Delete</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
                                     </div>
 
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Tiket</th>
+                                            <th>Paket</th>
+                                            <th>Harga</th>
+                                            <th>Status</th>
+                                            <th>Checkin</th>
+                                            <th>Action</th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $no = 1;
+                                        @endphp
+                                        @foreach($pendaftaran as $data)
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $data->name }}</td>
+                                            <td>{{ $data->email }}</td>
+                                            <td>{{ $data->phone }}</td>
+                                            <td>{{ $data->tiket }}</td>
+                                            <td>{{ $data->paket->name }}</td>
+                                            <td>Rp. {{ number_format($data->paket->harga) }}</td>
+                                            <td>
+
+                                                @if($data->status == 'paid')
+                                                <span class="badge badge-success">Paid</span>
+                                                @elseif($data->status == 'belumpilihpembayaran')
+                                                <span class="badge badge-warning">Belum Pilih Pembayaran</span>
+                                                @elseif($data->status == 'expire')
+                                                <span class="badge badge-secondary">Expire</span>
+                                                @else
+                                                <span class="badge badge-danger">Pending</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($data->checkin == 'sudah')
+                                                <span class="badge badge-success">Checkin</span>
+                                                @else
+                                                <span class="badge badge-danger">Belum Checkin</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{ $data->id }}">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Delete Modal -->
+                                        <div class="modal fade" id="deleteModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="defaultModalLabel">Delete Modal</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Yakin Ingin Menghapus Data {{ $data->name }}?
+                                                    </div>
+                                                    <form action="/pendaftaran/{{ $data->id }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn mb-2 btn-success" data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn mb-2 btn-danger">Delete</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div> <!-- simple table -->
