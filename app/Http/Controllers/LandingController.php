@@ -217,26 +217,62 @@ class LandingController extends Controller
 
         if ($hashed == $request->signature_key) {
             if ($request->transaction_status == 'settlement') {
-                $order = Pendaftaran::find($request->order_id);
-                $order->bank = $request->va_numbers[0]['bank'];
-                $order->va = $request->va_numbers[0]['va_number'];
-                $order->kadaluarsa = $request->expiry_time;
-                $order->status = 'paid';
-                $order->save();
+
+                if ($request->permata_va_number != null) {
+
+                    $order = Pendaftaran::find($request->order_id);
+                    $order->bank = 'permata';
+                    $order->va = $request->permata_va_number;
+                    $order->kadaluarsa = $request->expiry_time;
+                    $order->status = 'paid';
+                    $order->save();
+                } else {
+
+                    $order = Pendaftaran::find($request->order_id);
+                    $order->bank = $request->va_numbers[0]['bank'];
+                    $order->va = $request->va_numbers[0]['va_number'];
+                    $order->kadaluarsa = $request->expiry_time;
+                    $order->status = 'paid';
+                    $order->save();
+                }
             } elseif ($request->transaction_status == 'pending') {
-                $order = Pendaftaran::find($request->order_id);
-                $order->bank = $request->va_numbers[0]['bank'];
-                $order->va = $request->va_numbers[0]['va_number'];
-                $order->kadaluarsa = $request->expiry_time;
-                $order->status = 'pending';
-                $order->save();
+
+                if ($request->permata_va_number != null) {
+
+                    $order = Pendaftaran::find($request->order_id);
+                    $order->bank = 'permata';
+                    $order->va = $request->permata_va_number;
+                    $order->kadaluarsa = $request->expiry_time;
+                    $order->status = 'pending';
+                    $order->save();
+                } else {
+
+                    $order = Pendaftaran::find($request->order_id);
+                    $order->bank = $request->va_numbers[0]['bank'];
+                    $order->va = $request->va_numbers[0]['va_number'];
+                    $order->kadaluarsa = $request->expiry_time;
+                    $order->status = 'pending';
+                    $order->save();
+                }
             } else {
-                $order = Pendaftaran::find($request->order_id);
-                $order->bank = $request->va_numbers[0]['bank'];
-                $order->va = $request->va_numbers[0]['va_number'];
-                $order->kadaluarsa = $request->expiry_time;
-                $order->status = 'expire';
-                $order->save();
+
+                if ($request->permata_va_number != null) {
+
+                    $order = Pendaftaran::find($request->order_id);
+                    $order->bank = 'permata';
+                    $order->va = $request->permata_va_number;
+                    $order->kadaluarsa = $request->expiry_time;
+                    $order->status = 'expire';
+                    $order->save();
+                } else {
+
+                    $order = Pendaftaran::find($request->order_id);
+                    $order->bank = $request->va_numbers[0]['bank'];
+                    $order->va = $request->va_numbers[0]['va_number'];
+                    $order->kadaluarsa = $request->expiry_time;
+                    $order->status = 'expire';
+                    $order->save();
+                }
             }
         }
     }
