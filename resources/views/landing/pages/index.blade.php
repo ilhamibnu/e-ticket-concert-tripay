@@ -36,9 +36,9 @@
                         <a class="nav-link click-scroll" href="#section_1">Home</a>
                     </li>
 
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_2">About</a>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#section_3">Artists</a>
@@ -130,7 +130,7 @@
     </section>
 
 
-    <section class="about-section section-padding" id="section_2">
+    {{-- <section class="about-section section-padding" id="section_2">
         <div class="container">
             <div class="row">
 
@@ -159,27 +159,27 @@
                     <div class="about-text-wrap">
                         <img src="{{ asset('landing/images/images-pexels-alexander-suhorucov-6457579.jpg') }}" class="about-image img-fluid">
 
-                        <div class="about-text-info d-flex">
-                            <div class="d-flex">
-                                <i class="about-text-icon bi-person"></i>
-                            </div>
-
-
-                            <div class="ms-4">
-                                <h3>a happy moment</h3>
-
-                                <p class="mb-0">your amazing festival experience with us</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <div class="about-text-info d-flex">
+        <div class="d-flex">
+            <i class="about-text-icon bi-person"></i>
         </div>
-    </section>
 
 
-    <section class="artists-section section-padding" id="section_3">
+        <div class="ms-4">
+            <h3>a happy moment</h3>
+
+            <p class="mb-0">your amazing festival experience with us</p>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </section> --}}
+
+
+    <section class="artists-section section-padding" id="section_2">
         <div class="container">
             <div class="row justify-content-center">
 
@@ -285,7 +285,7 @@
     </section>
 
 
-    <section class="schedule-section section-padding" id="section_4">
+    <section class="schedule-section section-padding" id="section_3">
         <div class="container">
             <div class="row">
 
@@ -383,7 +383,7 @@
     </section>
 
 
-    <section class="pricing-section section-padding section-bg" id="section_5">
+    <section class="pricing-section section-padding section-bg" id="section_4">
         <div class="container">
             <div class="row">
 
@@ -439,7 +439,7 @@
         </div>
     </section>
 
-    <section class="contact-section section-padding" id="section_6">
+    <section class="contact-section section-padding" id="section_5">
         <div class="container">
             <div class="row">
 
@@ -781,7 +781,7 @@
 @section('sweetalert')
 @if(Session::get('create'))
 <script>
-    window.location.href = "/#section_6";
+    window.location.href = "/#section_5";
     Swal.fire({
         icon: 'success'
         , title: 'Done!'
@@ -793,7 +793,7 @@
 @if(Session::get('paketnonaktif'))
 
 <script>
-    window.location.href = "/#section_5";
+    window.location.href = "/#section_4";
     Swal.fire({
         icon: 'error'
         , title: 'Oops...'
@@ -805,7 +805,7 @@
 @if(Session::get('pakettidaktersedia'))
 
 <script>
-    window.location.href = "/#section_5";
+    window.location.href = "/#section_4";
     Swal.fire({
         icon: 'error'
         , title: 'Oops...'
@@ -817,7 +817,7 @@
 @if(Session::get('pakethabis'))
 
 <script>
-    window.location.href = "/#section_6";
+    window.location.href = "/#section_5";
     Swal.fire({
         icon: 'error'
         , title: 'Oops...'
@@ -838,7 +838,7 @@
 @endif
 @if(Session::get('error'))
 <script>
-    window.location.href = "/#section_6";
+    window.location.href = "/#section_5";
     Swal.fire({
         icon: 'error'
         , title: 'Oops...'
@@ -849,7 +849,7 @@
 @endif
 @if($datatiket != null)
 <script>
-    window.location.href = "/#section_6";
+    window.location.href = "/#section_5";
     Swal.fire({
         icon: 'success'
         , title: 'Done!'
@@ -870,7 +870,7 @@
 @endif
 @if(Session::get('sudahterdaftar'))
 <script>
-    window.location.href = "/#section_5";
+    window.location.href = "/#section_4";
     Swal.fire({
         icon: 'error'
         , title: 'Oops...'
@@ -881,7 +881,7 @@
 @endif
 @if(Session::get('emailterdaftar'))
 <script>
-    window.location.href = "/#section_5";
+    window.location.href = "/#section_4";
     Swal.fire({
         icon: 'error'
         , title: 'Oops...'
@@ -892,7 +892,7 @@
 @endif
 @if(Session::get('phoneterdaftar'))
 <script>
-    window.location.href = "/#section_5";
+    window.location.href = "/#section_4";
     Swal.fire({
         icon: 'error'
         , title: 'Oops...'
@@ -903,7 +903,7 @@
 @endif
 @if(Session::get('paketkosong'))
 <script>
-    window.location.href = "/#section_5";
+    window.location.href = "/#section_4";
     Swal.fire({
         icon: 'error'
         , title: 'Oops...'

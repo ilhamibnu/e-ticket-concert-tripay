@@ -52,28 +52,28 @@
 
                  <ul class="site-footer-links">
                      <li class="site-footer-link-item">
-                         <a href="#" class="site-footer-link">Home</a>
+                         <a href="/#section_1" class="site-footer-link">Home</a>
+                     </li>
+
+                     {{-- <li class="site-footer-link-item">
+                         <a href="/#section_2" class="site-footer-link">About</a>
+                     </li> --}}
+
+                     <li class="site-footer-link-item">
+                         <a href="/#section_3" class="site-footer-link">Artists</a>
                      </li>
 
                      <li class="site-footer-link-item">
-                         <a href="#" class="site-footer-link">About</a>
+                         <a href="/#section_4" class="site-footer-link">Schedule</a>
                      </li>
 
                      <li class="site-footer-link-item">
-                         <a href="#" class="site-footer-link">Artists</a>
+                         <a href="/#section_5" class="site-footer-link">Ticket</a>
                      </li>
 
-                     <li class="site-footer-link-item">
-                         <a href="#" class="site-footer-link">Schedule</a>
-                     </li>
-
-                     <li class="site-footer-link-item">
-                         <a href="#" class="site-footer-link">Pricing</a>
-                     </li>
-
-                     <li class="site-footer-link-item">
+                     {{-- <li class="site-footer-link-item">
                          <a href="#" class="site-footer-link">Contact</a>
-                     </li>
+                     </li> --}}
                  </ul>
              </div>
 
