@@ -15,30 +15,31 @@ class CheckinController extends Controller
         return view('admin.pages.checkin');
     }
 
-    public function checkin(Request $request){
+    public function checkin(Request $request)
+    {
 
         $datapendaftaran = Pendaftaran::with('paket')->where('tiket', $request->pendaftaran_id)->first();
 
-        if($datapendaftaran){
+        if ($datapendaftaran) {
 
             $pendaftaran = Pendaftaran::where('tiket', $request->pendaftaran_id)->first();
             $paket = Paket::find($pendaftaran->id_paket);
 
-            if($pendaftaran->status != 'paid'){
+            if ($pendaftaran->status != 'PAID') {
                 return response()->json([
                     'pendaftaran' => $pendaftaran,
                     'paket' => $paket,
                     'success' => 'belumbayar',
                     'message' => 'Checkin Gagal, Belum Melakukan Pembayaran'
                 ]);
-            }elseif($pendaftaran->checkin == 'sudah'){
+            } elseif ($pendaftaran->checkin == 'sudah') {
                 return response()->json([
                     'pendaftaran' => $pendaftaran,
                     'paket' => $paket,
                     'success' => 'sudahcheckin',
                     'message' => 'Checkin Gagal, Sudah Melakukan Checkin'
                 ]);
-            }else{
+            } else {
                 $pendaftaran->checkin = 'sudah';
                 $pendaftaran->save();
 
@@ -49,12 +50,11 @@ class CheckinController extends Controller
                     'message' => 'Checkin Berhasil'
                 ]);
             }
-        }else{
+        } else {
             return response()->json([
                 'success' => 'gagal',
                 'message' => 'Checkin Gagal'
             ]);
         }
-
     }
 }

@@ -16,12 +16,12 @@
                 <div class="col-md-12">
                     <div class="card shadow">
                         <div class="card-body">
-
+                            
                             <form>
                                 <div class="row">
                                     <h3>Scan QR Code</h3>
                                 </div>
-                                 <div class="row">
+                                 <div class="row text-center alignment-center">
                                      <div id="reader" height="400px" width="400px"></div>
                                     </div>
                                 <div class="form-group">
@@ -109,7 +109,9 @@
                          +'<p>Name: ' + response.pendaftaran.name + '</p>'
                          +'<p>Paket: ' + response.paket.name + '</p>',
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'OK'
+                        confirmButtonText: 'OK',
+                         timer: 4000,
+                        timerProgressBar: true,
                     }).then((result) => {
                       location.reload();
 
@@ -132,7 +134,9 @@
                          +'<p>Name: ' + response.pendaftaran.name + '</p>'
                          +'<p>Paket: ' + response.paket.name + '</p>',
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'OK'
+                        confirmButtonText: 'OK',
+                         timer: 4000,
+                        timerProgressBar: true,
                     }).then((result) => {
                       location.reload();
 
@@ -154,7 +158,9 @@
                          +'<p>Name: ' + response.pendaftaran.name + '</p>'
                          +'<p>Paket: ' + response.paket.name + '</p>',
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'OK'
+                        confirmButtonText: 'OK',
+                         timer: 4000,
+                        timerProgressBar: true,
                     }).then((result) => {
                          location.reload();
 
@@ -173,7 +179,9 @@
                         text: "Checkin Gagal, Data Tidak Ditemukan",
                         icon: 'error',
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'OK'
+                        confirmButtonText: 'OK',
+                       timer: 4000,
+                        timerProgressBar: true,
                     }).then((result) => {
                           location.reload();
 
@@ -330,5 +338,36 @@
 
     </script>
 @endif
+@if(Session::get('updateprofil'))
+<script>
+    Swal.fire({
+            icon: 'success',
+            title: 'Done!',
+            text: 'Profil Berhasil Diperbarui',
+        });
+
+</script>
+@endif
+@if(Session::get('passwordtidaksama'))
+<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Konfirmasi Password Salah',
+        });
+
+</script>
+@endif
+@if(Session::get('updateprofilerror'))
+<script>
+    Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Password Anda Salah',
+        });
+
+</script>
+@endif
+
 
 @endsection

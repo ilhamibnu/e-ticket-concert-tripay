@@ -42,13 +42,14 @@ class AuthController extends Controller
 
     }
 
-    public function profilupdate(Request $request, $id)
+    
+      public function updateprofil(Request $request, $id)
     {
         if ($request->oldpassword == null) {
             $request->validate(
                 [
-                    'nama' => 'required',
-                    'email' => 'required|email|unique:tb_user,email,' . $id,
+                    'name' => 'required',
+                    'email' => 'required|email|unique:tb_users,email,' . $id,
                 ],
                 [
                     'nama.required' => 'name tidak boleh kosong',
@@ -58,27 +59,27 @@ class AuthController extends Controller
                 ]
             );
             $user = User::find($id);
-            $user->nama = $request->nama;
+            $user->name = $request->name;
             $user->email = $request->email;
             $user->save();
-            return redirect()->intended('/index')->with('updateprofil', 'berhasil update profil');
+            return redirect()->intended('/checkin')->with('updateprofil', 'berhasil update profil');
         } else {
 
             $request->validate(
                 [
-                    'nama' => 'required',
-                    'email' => 'required|email|unique:tb_user,email,' . $id,
+                    'name' => 'required',
+                    'email' => 'required|email|unique:tb_users,email,' . $id,
                     'oldpassword' => 'required',
-                    'password' => 'required|min:8',
+                    'password' => 'required',
                     'repassword' => 'required|same:password',
                 ],
                 [
-                    'nama.required' => 'name tidak boleh kosong',
+                    'name.required' => 'name tidak boleh kosong',
                     'email.required' => 'email tidak boleh kosong',
                     'email.email' => 'email tidak valid',
                     'email.unique' => 'email sudah terdaftar',
                     'oldpassword.required' => 'oldpassword tidak boleh kosong',
-                    'password.min' => 'password minimal 8 karakter',
+                    // 'password.min' => 'password minimal 8 karakter',
                     'password.required' => 'password tidak boleh kosong',
                     'repassword.required' => 'repassword tidak boleh kosong',
                     'repassword.same' => 'repassword tidak sama dengan password',
@@ -90,18 +91,18 @@ class AuthController extends Controller
                 if ($request->password == $request->repassword) {
 
                     $user = User::find($id);
-                    $user->nama = $request->nama;
+                    $user->name = $request->name;
                     $user->email = $request->email;
                     $user->password = bcrypt($request->password);
                     $user->save();
-                    return redirect()->intended('/index')->with('updateprofil', 'berhasil update profil');
+                    return redirect()->intended('/checkin')->with('updateprofil', 'berhasil update profil');
                 } else {
 
-                    return redirect()->intended('/index')->with('passwordtidaksama', 'gagal update profil');
+                    return redirect()->intended('/checkin')->with('passwordtidaksama', 'gagal update profil');
                 }
             } else {
 
-                return redirect()->intended('/index')->with('updateprofilerror', 'gagal update profil');
+                return redirect()->intended('/checkin')->with('updateprofilerror', 'gagal update profil');
             }
         }
     }

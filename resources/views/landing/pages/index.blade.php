@@ -9,7 +9,7 @@
                 <div class="col-lg-12 col-12 d-flex flex-wrap">
                     <p class="d-flex me-4 mb-0">
                         <i class="bi-person custom-icon me-2"></i>
-                        <strong class="text-dark">Welcome to Dies Natalis 2023</strong>
+                        <strong class="text-dark">Welcome to Maxilla 2023</strong>
                     </p>
                 </div>
 
@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="/">
-                Dies Natalis
+                Maxilla 2023
             </a>
 
             {{-- <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a> --}}
@@ -41,19 +41,19 @@
                     </li> --}}
 
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_3">Artists</a>
+                        <a class="nav-link click-scroll" href="#section_2">Artists</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_4">Schedule</a>
+                        <a class="nav-link click-scroll" href="#section_3">Schedule</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_5">Ticket</a>
+                        <a class="nav-link click-scroll" href="#section_4">Ticket</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_6">Check Tiket</a>
+                        <a class="nav-link click-scroll" href="#section_5">Check Tiket</a>
                     </li>
                 </ul>
 
@@ -72,23 +72,24 @@
                 <div class="col-12 mt-auto mb-5 text-center">
                     <small>We Are Presents</small>
 
-                    <h1 class="text-white mb-5">Dies Natalis 2023</h1>
+                    <h1 class="text-white mb-5">Maxilla 2023</h1>
 
-                    <a class="btn custom-btn smoothscroll" href="#section_2">Let's begin</a>
+                    <button class="btn custom-btn" data-toggle="modal" data-target="#modalpanduan"><span>Video Panduan</span>
+                    </button>
                 </div>
 
                 <div class="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
                     <div class="date-wrap">
                         <h5 class="text-white">
                             <i class="custom-icon bi-clock me-2"></i>
-                            10 - 12<sup>th</sup>, Dec 2023
+                            11 Agustus 2023
                         </h5>
                     </div>
 
                     <div class="location-wrap mx-auto py-3 py-lg-0">
                         <h5 class="text-white">
                             <i class="custom-icon bi-geo-alt me-2"></i>
-                            National Center, United States
+                            Auditorium Poltekkes Kemenkes Surabaya
                         </h5>
                     </div>
 
@@ -130,53 +131,6 @@
     </section>
 
 
-    {{-- <section class="about-section section-padding" id="section_2">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
-                    <div class="services-info">
-                        <h2 class="text-white mb-4">About Dies Natalis 2023</h2>
-
-                        <p class="text-white">Festava Live is free CSS template provided by TemplateMo website.
-                            This
-                            layout is built on Bootstrap v5.2.2 CSS library. You are free to use this template for
-                            your commercial website.</p>
-
-                        <h6 class="text-white mt-4">Once in Lifetime Experience</h6>
-
-                        <p class="text-white">You are not allowed to redistribute the template ZIP file on any
-                            other
-                            website without a permission.</p>
-
-                        <h6 class="text-white mt-4">Whole Night Party</h6>
-
-                        <p class="text-white">Please tell your friends about our website. Thank you.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-12">
-                    <div class="about-text-wrap">
-                        <img src="{{ asset('landing/images/images-pexels-alexander-suhorucov-6457579.jpg') }}" class="about-image img-fluid">
-
-    <div class="about-text-info d-flex">
-        <div class="d-flex">
-            <i class="about-text-icon bi-person"></i>
-        </div>
-
-
-        <div class="ms-4">
-            <h3>a happy moment</h3>
-
-            <p class="mb-0">your amazing festival experience with us</p>
-        </div>
-    </div>
-    </div>
-    </div>
-
-    </div>
-    </div>
-    </section> --}}
 
 
     <section class="artists-section section-padding" id="section_2">
@@ -184,101 +138,99 @@
             <div class="row justify-content-center">
 
                 <div class="col-12 text-center">
-                    <h2 class="mb-4">Meet Artists
+                    <h2 class="mb-4">Artists
                     </h2>
                 </div>
 
-                <div class="col-lg-5 col-12">
-                    <div class="artists-thumb">
-                        <div class="artists-image-wrap">
-                            <img src="{{ asset('landing/images/artists-joecalih-UmTZqmMvQcw-unsplash.jpg') }}" class="artists-image img-fluid">
-                        </div>
 
-                        <div class="artists-hover">
-                            <p>
-                                <strong>Name:</strong>
-                                Madona
-                            </p>
 
-                            <p>
-                                <strong>Birthdate:</strong>
-                                August 16, 1958
-                            </p>
+                <!--<div class="col-lg-5 col-12">-->
+                <div class="artists-thumb">
 
-                            <p>
-                                <strong>Music:</strong>
-                                Pop, R&amp;B
-                            </p>
+                    <!--<div class="artists-image-wrap">-->
+                    <img src="{{ asset('landing/images/personil-lavora.jpg') }}" class="artists-image">
+                    <!--</div>-->
 
-                            <hr>
-
-                            <p class="mb-0">
-                                <strong>Youtube Channel:</strong>
-                                <a href="#">Madona Official</a>
-                            </p>
-                        </div>
+                    <div class="artists-hover">
+                        <p>
+                            Name:
+                            Lavora
+                        </p>
+                        <p>
+                            Tiktok:
+                            <a href="https://www.tiktok.com/@lavoraofficial?lang=en">Lavora Official</a>
+                        </p>
+                        <p>
+                            Instagram:
+                            <a href="https://www.instagram.com/lavora.official/?hl=en">Lavora Official</a>
+                        </p>
+                        <p>
+                            Youtube Channel:
+                            <a href="https://www.youtube.com/channel/UCEt7GLWucbgnrxth-JLYApA">Lavora Official</a>
+                        </p>
                     </div>
                 </div>
+                <!--</div>-->
 
-                <div class="col-lg-5 col-12">
-                    <div class="artists-thumb">
-                        <div class="artists-image-wrap">
-                            <img src="{{ asset('landing/images/artists-abstral-official-bdlMO9z5yco-unsplash.jpg') }}" class="artists-image img-fluid">
-                        </div>
+                <!--<div class="col-lg-5 col-12">-->
+                <!--    <div class="artists-thumb">-->
+                <!--        <div class="artists-image-wrap">-->
+                <!--            <img src="{{ asset('landing/images/artists-abstral-official-bdlMO9z5yco-unsplash.jpg') }}" class="artists-image img-fluid">-->
+                <!--        </div>-->
 
-                        <div class="artists-hover">
-                            <p>
-                                <strong>Name:</strong>
-                                Rihana
-                            </p>
+                <!--        <div class="artists-hover">-->
+                <!--            <p>-->
+                <!--                <strong>Name:</strong>-->
+                <!--                Rihana-->
+                <!--            </p>-->
 
-                            <p>
-                                <strong>Birthdate:</strong>
-                                Feb 20, 1988
-                            </p>
+                <!--            <p>-->
+                <!--                <strong>Birthdate:</strong>-->
+                <!--                Feb 20, 1988-->
+                <!--            </p>-->
 
-                            <p>
-                                <strong>Music:</strong>
-                                Country
-                            </p>
+                <!--            <p>-->
+                <!--                <strong>Music:</strong>-->
+                <!--                Country-->
+                <!--            </p>-->
 
-                            <hr>
+                <!--            <hr>-->
 
-                            <p class="mb-0">
-                                <strong>Youtube Channel:</strong>
-                                <a href="#">Rihana Official</a>
-                            </p>
-                        </div>
-                    </div>
+                <!--            <p class="mb-0">-->
+                <!--                <strong>Youtube Channel:</strong>-->
+                <!--                <a href="#">Rihana Official</a>-->
+                <!--            </p>-->
+                <!--        </div>-->
+                <!--    </div>-->
 
-                    <div class="artists-thumb">
-                        <img src="{{ asset('landing/images/artists-soundtrap-rAT6FJ6wltE-unsplash.jpg') }}" class="artists-image img-fluid">
+                <!--    <div class="artists-thumb">-->
+                <!--        <img src="{{ asset('landing/images/artists-soundtrap-rAT6FJ6wltE-unsplash.jpg') }}" class="artists-image img-fluid">-->
 
-                        <div class="artists-hover">
-                            <p>
-                                <strong>Name:</strong>
-                                Bruno Bros
-                            </p>
+                <!--        <div class="artists-hover">-->
+                <!--            <p>-->
+                <!--                <strong>Name:</strong>-->
+                <!--                Bruno Bros-->
+                <!--            </p>-->
 
-                            <p>
-                                <strong>Birthdate:</strong>
-                                October 8, 1985
-                            </p>
+                <!--            <p>-->
+                <!--                <strong>Birthdate:</strong>-->
+                <!--                October 8, 1985-->
+                <!--            </p>-->
 
-                            <p>
-                                <strong>Music:</strong>
-                                Pop
-                            </p>
+                <!--            <p>-->
+                <!--                <strong>Music:</strong>-->
+                <!--                Pop-->
+                <!--            </p>-->
 
-                            <hr>
+                <!--            <hr>-->
 
-                            <p class="mb-0">
-                                <strong>Youtube Channel:</strong>
-                                <a href="#">Bruno Official</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <!--            <p class="mb-0">-->
+                <!--                <strong>Youtube Channel:</strong>-->
+                <!--                <a href="#">Bruno Official</a>-->
+                <!--            </p>-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
 
             </div>
         </div>
@@ -296,83 +248,84 @@
                             <table class="schedule-table table table-dark">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Date</th>
-
-                                        <th scope="col">Wednesday</th>
-
-                                        <th scope="col">Thursday</th>
-
-                                        <th scope="col">Friday</th>
+                                        <th scope="col">Waktu</th>
+                                        <th scope="col">Kegiatan</th>
 
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Day 1</th>
+                                        <th scope="row">
+                                            <h3>17.50 - 19.00 WIB</h3>
+                                        </th>
 
-                                        <td class="table-background-image-wrap pop-background-image">
-                                            <h3>Pop Night</h3>
+                                        <td>
+                                            <h3>Registrasi Penonton</h3>
 
-                                            <p class="mb-2">5:00 - 7:00 PM</p>
-
-                                            <p>By Adele</p>
-
-                                            <div class="section-overlay"></div>
-                                        </td>
-
-                                        <td style="background-color: #F3DCD4"></td>
-
-                                        <td class="table-background-image-wrap rock-background-image">
-                                            <h3>Rock &amp; Roll</h3>
-
-                                            <p class="mb-2">7:00 - 11:00 PM</p>
-
-                                            <p>By Rihana</p>
-
-                                            <div class="section-overlay"></div>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <th scope="row">Day 2</th>
+                                        <th scope="row">
+                                            <h3>19.00 - 19.10 WIB</h3>
 
-                                        <td style="background-color: #ECC9C7"></td>
+                                        </th>
 
                                         <td>
-                                            <h3>DJ Night</h3>
+                                            <h3>Pembukaan MC</h3>
 
-                                            <p class="mb-2">6:30 - 9:30 PM</p>
-
-                                            <p>By Rihana</p>
                                         </td>
-
-                                        <td style="background-color: #D9E3DA"></td>
                                     </tr>
 
                                     <tr>
-                                        <th scope="row">Day 3</th>
+                                        <th scope="row">
+                                            <h3>19.10 - 20.00 WIB</h3>
 
-                                        <td class="table-background-image-wrap country-background-image">
-                                            <h3>Country Music</h3>
-
-                                            <p class="mb-2">4:30 - 7:30 PM</p>
-
-                                            <p>By Rihana</p>
-
-                                            <div class="section-overlay"></div>
-                                        </td>
-
-                                        <td style="background-color: #D1CFC0"></td>
+                                        </th>
 
                                         <td>
-                                            <h3>Free Styles</h3>
+                                            <h3>Penampilan Mahasiswa JKG</h3>
 
-                                            <p class="mb-2">6:00 - 10:00 PM</p>
-
-                                            <p>By Members</p>
                                         </td>
                                     </tr>
+
+                                    <tr>
+                                        <th scope="row">
+                                            <h3>20.00 - 20.15 WIB</h3>
+
+                                        </th>
+
+                                        <td>
+                                            <h3>Penayangan Sponsor</h3>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">
+                                            <h3>20.15 - 21.00 WIB</h3>
+
+                                        </th>
+
+                                        <td>
+                                            <h3>Penampilan Lavora</h3>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">
+                                            <h3>21.00 - 21.05 WIB</h3>
+
+                                        </th>
+
+                                        <td>
+                                            <h3>Penutupan</h3>
+
+                                        </td>
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -391,47 +344,45 @@
                     @if ($paket->count() == 0)
                     <h2 class="text-center mb-4">Mohon Maaf Tiket Tidak Tersedia</h2>
                     @else
-                    <h2 class="text-center mb-4">Plans, you' love</h2>
+                    <h2 class="text-center mb-4">Choose Your Ticket!</h2>
                     @endif
 
                 </div>
 
-
+                {{-- <div class="text-center aligment-center">
+                    <div class="tab-content shadow-lg mt-5 mb-5">
+                        <h4>Information</h4>
+                        <p>
+                            <li>Setelah melakukan pemesanan dan pembayaran ticket, silahkan menggunakan fitur check ticket untuk melihat detail ticket anda</li>
+                        </p>
+                    </div>
+                </div> --}}
 
                 @foreach($paket as $item)
                 <div class="col-lg-6 col-12">
                     <div class="pricing-thumb">
                         <div class="d-flex">
                             <div>
-                                <h3><small>{{ $item->name }}</small>Rp.{{ number_format($item->harga) }}</h3>
-
-                                <p>Including good things:</p>
+                                <h3><small>{{ $item->name }}</small><br>Rp.{{ number_format($item->harga) }}</h3>
+                                {{-- <p>Including good things:</p> --}}
                             </div>
 
                             <p class="pricing-tag ms-auto">Tersedia <span>{{$item->sisa }}</span>
                             </p>
                         </div>
 
-                        <ul class="pricing-list mt-3">
-                            <li class="pricing-list-item">platform for potential customers</li>
-
-                            <li class="pricing-list-item">digital experience</li>
-
-                            <li class="pricing-list-item">high-quality sound</li>
-
-                            <li class="pricing-list-item">standard content</li>
+                        <ul class="mt-4">
+                            <li class="pricing-list-item">{{ $item->keterangan }}</li>
+                            <li class="pricing-list-item">Harga diatas sudah termasuk biaya admin</li>
                         </ul>
 
-                        <a class="link-fx-1 color-contrast-higher mt-4" data-toggle="modal" data-target="#modalorder">
-                            <span>Buy Ticket</span>
-                            <svg class="icon" viewbox="0 0 32 32" aria-hidden="true">
-                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="16" cy="16" r="15.5"></circle>
-                                    <line x1="10" y1="18" x2="16" y2="12"></line>
-                                    <line x1="16" y1="12" x2="22" y2="18"></line>
-                                </g>
-                            </svg>
-                        </a>
+
+                        <div class="text-center">
+                            <button class="btn custom-btn" data-toggle="modal" data-target="#modalorder"><span>Buy Ticket</span>
+                            </button>
+                        </div>
+
+
                     </div>
                 </div>
                 @endforeach
@@ -444,7 +395,7 @@
             <div class="row">
 
                 <div class="col-lg-8 col-12 mx-auto">
-                    <h2 class="text-center mb-4">Interested? Let's talk</h2>
+                    <h2 class="text-center mb-4">Check Your Ticket!</h2>
 
                     <nav class="d-flex justify-content-center">
                         <div class="nav nav-tabs align-items-baseline justify-content-center" id="nav-tab" role="tablist">
@@ -460,12 +411,22 @@
 
                     <div class="tab-content shadow-lg mt-5" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-ContactForm" role="tabpanel" aria-labelledby="nav-ContactForm-tab">
+
                             <form class="custom-form contact-form mb-5 mb-lg-0" action="/" method="post" role="form">
+                                <div class="text-center aligment-center">
+
+                                    <h4>Information</h4>
+                                    <p>
+                                        <li>Setelah melakukan pemesanan dan pembayaran ticket, silahkan menggunakan fitur check ticket untuk melihat detail ticket anda</li>
+                                    </p>
+
+
+                                </div>
                                 @csrf
                                 <div class="contact-form-body">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-12">
-                                            <input type="text" name="email" value="{{ Session::get('cemail') }}" id="contact-name" class="form-control" placeholder="Email" required>
+                                            <input type="email" name="email" value="{{ Session::get('cemail') }}" id="contact-name" class="form-control" placeholder="Email" required>
                                         </div>
 
                                         <div class="col-lg-6 col-md-6 col-12">
@@ -481,26 +442,10 @@
 
                             </form>
 
-                            <br><br>
-
-                            @if($errors->any())
-                            <!-- <div class="alert alert-danger alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                            aria-hidden="true">×</span>
-                                    </button>
-
-
-                                    <?php
-
-                                        $nomer = 1;
-
-                                        ?>
-
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $nomer++ }}. {{ $error }}</li>
-                                    @endforeach -->
                         </div>
-                        @elseif($datatiket)
+                        <br><br>
+
+                        @if($datatiket)
                         <div class="alert alert-success alert-dismissible fade show">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                             </button>
@@ -512,178 +457,156 @@
                             <li>Harga : Rp. {{ number_format($datatiket->paket->harga) }}</li>
                             <li>Status Pembayaran : {{ $datatiket->status }}</li>
                             <br>
-                            <blade @if ($datatiket->status == 'belumpilihpembayaran' && $datatiket->bank == '')
-                                <div class="text-center align-center">
-                                    <li>
-                                        Lakukan Pembayaran Lebih Dulu Yaa...
 
-                                    </li>
-                                    <div class="text-center align-center">
+                            @if ($datatiket->status == 'UNPAID')
 
-                                        <button class="btn btn-success" id="pay-button">Pilih Metode Pembayaran</button>
-                                    </div>
-                                    <li>Catatan : Setelah Memilih Metode Pembayaran, Anda Hanya Memiliki Waktu 30 Menit Untuk Menyelesaikan Pembayaran. Apabila Pembayaran Telah Berhasil, Silahkan Check Ticket Anda Untuk Melihat QrCode Ticket.</li>
-                                    <li>Anda Ingin Batalkan Pemesanan Tiket ?</li>
-                                    <div class="text-center align-center">
-                                        <button class="btn btn-danger" data-toggle="modal" data-target="#modalbatal">Batalkan Tiket</button>
-                                    </div>
+                            <div class="text-center align-center">
+                                <li>
+                                    Lakukan Pembayaran Lebih Dulu Yaa...
 
-                                    <div class="modal fade bd-example-modal-lg" id="modalbatal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">
-                                                            Pembatalan Tiket
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
+                                </li>
 
-                                                        <form class="custom-form ticket-form mb-5 mb-lg-0" action="/bataltiket/{{ $datatiket->id }}" method="post" role="form">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <p>Anda Yakin Akan Membatalkan Tiket ?</p>
-                                                            <button class="btn btn-danger" type="submit">Batalkan
-                                                                Tiket</button>
+                                <a class="btn btn-success" target="blank_" href="{{ $datatiket->checkout_url }}">Bayar</a>
+                                {{-- <li>Bank : {{ $datatiket->bank }}</li>
+                                <li>Nomor Virtual Account : {{ $datatiket->va }}</li>
+                                <li>Kadaluarsa : {{ $datatiket->kadaluarsa }}</li> --}}
 
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @elseif ($datatiket->status == 'pending' && $datatiket->bank != '')
-
-                                <div class="text-center align-center">
-                                    <li>
-                                        Lakukan Pembayaran Lebih Dulu Yaa...
-
-                                    </li>
-                                    <li>Bank : {{ $datatiket->bank }}</li>
-                                    <li>Nomor Virtual Account : {{ $datatiket->va }}</li>
-                                    <li>Kadaluarsa : {{ $datatiket->kadaluarsa }}</li>
-
-                                    <br>
-
-                                </div>
-                                @elseif ($datatiket->status == 'expire' && $datatiket->bank != '')
-
-                                <div class="text-center align-center">
-                                    <li>
-                                        Lakukan Pembayaran Lebih Dulu Yaa...
-
-                                    </li>
-                                    <li>Bank : {{ $datatiket->bank }}</li>
-                                    <li>Nomor Virtual Account : {{ $datatiket->va }}</li>
-                                    <li>Kadaluarsa : {{ $datatiket->kadaluarsa }}</li>
-
-                                    <br>
-                                    <li>Apabila Pembayaran Anda Kadaluarsa, Silahkan Lakukan Pembatan Tiket, Kemudian
-                                        Pesan Kembali</li>
-                                    <div class="text-center align-center">
-                                        <button class="btn btn-danger" data-toggle="modal" data-target="#modalbatal">Batalkan Tiket</button>
-                                    </div>
-
-                                    <div class="modal fade bd-example-modal-lg" id="modalbatal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">
-                                                            Pembatalan Tiket
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-
-                                                        <form class="custom-form ticket-form mb-5 mb-lg-0" action="/bataltiket/{{ $datatiket->id }}" method="post" role="form">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <p>Anda Yakin Akan Membatalkan Tiket ?</p>
-                                                            <button class="btn btn-danger" type="submit">Batalkan
-                                                                Tiket</button>
-
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @elseif ($datatiket->status == 'expire')
-
-                                <div class="text-center align-center">
-                                    <li>
-                                        Pembayaran Anda Kadaluarsa
-
-                                    </li>
-
-                                    <br>
-                                    <li>Apabila Pembayaran Anda Kaluarsa, Silahkan Lakukan Pembatan Tiket, Kemudian
-                                        Pesan Kembali</li>
-                                    <div class="text-center align-center">
-                                        <button class="btn btn-danger" data-toggle="modal" data-target="#modalbatal">Batalkan Tiket</button>
-                                    </div>
-
-                                    <div class="modal fade bd-example-modal-lg" id="modalbatal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">
-                                                            Pembatalan Tiket
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-
-                                                        <form class="custom-form ticket-form mb-5 mb-lg-0" action="/bataltiket/{{ $datatiket->id }}" method="post" role="form">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <p>Anda Yakin Akan Membatalkan Tiket ?</p>
-                                                            <button class="btn btn-danger" type="submit">Batalkan
-                                                                Tiket</button>
-
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @elseif ($datatiket->status == 'paid')
-
-                                <li>QrCode Tiket : </li>
                                 <br>
+
+                                <li>Apabila Pembayaran Anda Mengalami Masalah, Ingin Mengubah Metode Pembayaran, Code VA Tidak Ditemukan, Silahkan Lakukan Pembatan Tiket, Kemudian
+                                    Pesan Kembali</li>
                                 <div class="text-center align-center">
-                                    {!! DNS2D::getBarcodeHTML($datatiket->tiket, 'QRCODE') !!}
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modalbatal">Batalkan Tiket</button>
                                 </div>
 
-                                @endif
+                                <div class="modal fade bd-example-modal-lg" id="modalbatal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        Pembatalan Tiket
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form class="custom-form ticket-form mb-5 mb-lg-0" action="/bataltiket/{{ $datatiket->id }}" method="post" role="form">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <span>{{ $datatiket->name }}, Anda Yakin Akan Melakukan Pembatalan Tiket ? </span><br><br>
+                                                        <button class="btn btn-danger" type="submit">Batalkan
+                                                            Tiket</button>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                            @elseif ($datatiket->status == 'EXPIRED')
+
+                            <div class="text-center align-center">
+                                <li>
+                                    Pembayaran Anda Kadaluarsa
+
+                                </li>
+
+                                <br>
+                                <li>Apabila Pembayaran Anda Kadaluarsa, Silahkan Lakukan Pembatalan Tiket, Kemudian
+                                    Pesan Kembali</li>
+                                <div class="text-center align-center">
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modalbatal">Batalkan Tiket</button>
+                                </div>
+
+                                <div class="modal fade bd-example-modal-lg" id="modalbatal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        Pembatalan Tiket
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <form class="custom-form ticket-form mb-5 mb-lg-0" action="/bataltiket/{{ $datatiket->id }}" method="post" role="form">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <span>{{ $datatiket->name }}, Anda Yakin Akan Melakukan Pembatalan Tiket ? </span><br><br>
+                                                        <button class="btn btn-danger" type="submit">Batalkan
+                                                            Tiket</button>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @elseif ($datatiket->status == 'PAID')
+
+                            <li>QrCode Tiket : </li>
+                            <br>
+                            <div class="text-center align-center">
+                                {!! DNS2D::getBarcodeHTML($datatiket->tiket, 'QRCODE', 7,7) !!}
+                            </div>
+
+                            <br>
+                            <li>Lakukan scan ticket pada saat di pintu masuk </li>
+
+                            @endif
+
+
                         </div>
                         @endif
 
+                        <div class="tab-pane fade" id="nav-ContactMap" role="tabpanel" aria-labelledby="nav-ContactMap-tab">
+                            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.62172062228!2d112.75953857591851!3d-7.283809171587563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbcadbad37a7%3A0x3457228a16c03aee!2sAuditorium%20Politeknik%20Kesehatan%20Kemenkes%20Surabaya!5e0!3m2!1sen!2sid!4v1690285640746!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <!-- You can easily copy the embed code from Google Maps -> Share -> Embed a map // -->
+                        </div>
                     </div>
+                </div>
 
-                    <div class="tab-pane fade" id="nav-ContactMap" role="tabpanel" aria-labelledby="nav-ContactMap-tab">
-                        <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29974.469402870927!2d120.94861466021855!3d14.106066818082482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd777b1ab54c8f%3A0x6ecc514451ce2be8!2sTagaytay%2C%20Cavite%2C%20Philippines!5e1!3m2!1sen!2smy!4v1670344209509!5m2!1sen!2smy" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <!-- You can easily copy the embed code from Google Maps -> Share -> Embed a map // -->
+            </div>
+        </div>
+    </section>
+
+
+    {{-- Modal --}}
+
+    <div class="modal fade bd-example-modal-lg" id="modalpanduan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title custom-btn" id="exampleModalLabel">Video Panduan
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="video-container">
+                            <iframe style="" src="https://www.youtube.com/embed/ESzG_kmzpYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+
                     </div>
                 </div>
             </div>
-
         </div>
-        </div>
-    </section>
+    </div>
 
 
     {{-- Modal --}}
@@ -719,9 +642,10 @@
                         @endif
                         <form class="custom-form ticket-form mb-5 mb-lg-0" action="/daftar" method="post" role="form">
                             @csrf
-                            <h2 class="text-center mb-4">Get started here</h2>
+                            {{-- <h2 class="text-center mb-4">Get started here</h2> --}}
 
                             <div class="ticket-form-body">
+                                <h6>Fill The Form</h6>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <input type="text" name="name" value="{{ Session::get('dname') }}" id="ticket-form-name" class="form-control" placeholder="Full name" required>
@@ -742,16 +666,46 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-check form-control">
                                             <input class="form-check-input" type="radio" value="{{ $data->id }}" name="id_paket" id="flexRadioDefault{{ $data->id }}">
-                                            <label class="form-check-label" for="flexRadioDefault{{ $data->id }}">
-                                                {{ $data->name }} - Rp.{{ number_format($data->harga) }}
+                                            <label class="form-check-label alignment-center" for="flexRadioDefault{{ $data->id }}">
+                                                {{ $data->name }}<br> Rp. {{ number_format($data->harga) }}
                                             </label>
                                         </div>
                                     </div>
                                     @endforeach
-                                    <div class="col-lg-4 col-md-10 col-8 mx-auto">
-                                        <button type="submit" class="form-control">Buy Ticket</button>
-                                    </div>
+
                                 </div>
+
+                                <h6>Choose Payment Method</h6>
+
+                                <div class="row">
+
+                                    @foreach ($paymentChannel as $dataa )
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-check form-control">
+                                            <input class="form-check-input" type="radio" value="{{ $dataa->code }}" name="payment_method" id="flexRadioDefault{{ $dataa->code }}">
+                                            <label class="form-check-label" for="flexRadioDefault{{ $dataa->code }}">
+                                                {{ $dataa->name }}<br> + Rp.{{ number_format($dataa->fee_customer->flat) }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @endforeach
+
+                                    {{-- <div class="mb-3">
+                                        <select class="form-select" name="payment_method" aria-label="Default select example">
+                                            <option selected>Pilih Metode Pembayaran</option>
+                                            @foreach ($paymentChannel as $dataa )
+                                            <option value="{{ $dataa->code }}">{{ $dataa->name }}</option>
+                                    @endforeach
+                                    </select>
+                                    </div> --}}
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                    <button type="submit" class="form-control">Buy Ticket</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -765,7 +719,7 @@
 @section('script')
 
 <script type="text/javascript" src="{{ asset('landing/qrcodejs/qrcode.js') }}"></script>
-<script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
+{{-- <script type="text/javascript" src="https://app.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
 <script type="text/javascript">
     // For example trigger on button clicked, or any time you need
     document.getElementById('pay-button').onclick = function() {
@@ -773,7 +727,7 @@
         snap.pay('{{ $snapToken }}');
     };
 
-</script>
+</script> --}}
 
 
 @endsection
@@ -908,6 +862,28 @@
         icon: 'error'
         , title: 'Oops...'
         , text: 'Pilih Paket Terlebih Dahulu!'
+    , });
+
+</script>
+@endif
+@if(Session::get('metodepembayarankosong'))
+<script>
+    window.location.href = "/#section_4";
+    Swal.fire({
+        icon: 'error'
+        , title: 'Oops...'
+        , text: 'Metode Pembayaran Kosong!'
+    , });
+
+</script>
+@endif
+@if(Session::get('gagal'))
+<script>
+    window.location.href = "/#section_4";
+    Swal.fire({
+        icon: 'error'
+        , title: 'Oops...'
+        , text: 'Gagal Melakukan Pembelian Tiket!'
     , });
 
 </script>

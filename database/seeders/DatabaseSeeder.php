@@ -2,6 +2,7 @@
 
 
 namespace Database\Seeders;
+
 use \App\Models\Paket;
 use App\Models\User;
 
@@ -22,24 +23,24 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-         Paket::create([
-            'name' => 'Paket 1',
-            'harga' => 100000,
-            'jumlah' => 500,
-            'status' => 'aktif',
-         ]);
+        //  Paket::create([
+        //     'name' => 'Paket 1',
+        //     'harga' => 100000,
+        //     'jumlah' => 500,
+        //     'status' => 'aktif',
+        //  ]);
 
-            Paket::create([
-                'name' => 'Paket 2',
-                'harga' => 200000,
-                'jumlah' => 500,
-                'status' => 'aktif',
-            ]);
+        //     Paket::create([
+        //         'name' => 'Paket 2',
+        //         'harga' => 200000,
+        //         'jumlah' => 500,
+        //         'status' => 'aktif',
+        //     ]);
 
-            User::create([
-                'name' => 'Admin',
-                'email' => 'admin@gmail.com',
-                'password' => bcrypt('admin123'),
-            ]);
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin123'),
+        ]);
     }
 }

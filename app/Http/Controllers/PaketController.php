@@ -25,6 +25,7 @@ class PaketController extends Controller
             'name' => 'required',
             'harga' => 'required|numeric|gte:0',
             'jumlah' => 'required|numeric|gte:0',
+            'keterangan' => 'required',
             'status' => 'required'
         ], [
             'name.required' => 'Nama paket harus diisi',
@@ -34,6 +35,7 @@ class PaketController extends Controller
             'jumlah.required' => 'Jumlah paket harus diisi',
             'jumlah.numeric' => 'Jumlah paket harus berupa angka',
             'jumlah.gte' => 'Jumlah paket harus lebih dari 0',
+            'keterangan.required' => 'Keterangan paket harus diisi',
             'status.required' => 'Status paket harus diisi',
         ]);
 
@@ -41,6 +43,7 @@ class PaketController extends Controller
         $paket->name = $request->name;
         $paket->harga = $request->harga;
         $paket->jumlah = $request->jumlah;
+        $paket->keterangan = $request->keterangan;
         $paket->status = $request->status;
         $paket->save();
         return redirect('/paket')->with('create', 'Paket berhasil ditambahkan');
@@ -52,6 +55,7 @@ class PaketController extends Controller
             'name' => 'required',
             'harga' => 'required|numeric|gte:0',
             'jumlah' => 'required|numeric|gte:0',
+            'keterangan' => 'required',
             'status' => 'required',
         ], [
             'name.required' => 'Nama paket harus diisi',
@@ -61,10 +65,11 @@ class PaketController extends Controller
             'jumlah.required' => 'Jumlah paket harus diisi',
             'jumlah.numeric' => 'Jumlah paket harus berupa angka',
             'jumlah.gte' => 'Jumlah paket harus lebih dari 0',
+            'keterangan.required' => 'Keterangan paket harus diisi',
             'status.required' => 'Status paket harus diisi',
         ]);
 
-        $jumlah_pendaftar = Pendaftaran::where('id_paket', $id)->where('status', '=', 'paid')->count() - Pendaftaran::where('id_paket', $id)->where('status', '=', 'pending')->count();
+        $jumlah_pendaftar = Pendaftaran::where('id_paket', $id)->where('status', '=', 'paid')->count() + Pendaftaran::where('id_paket', $id)->where('status', '=', 'unpaid')->count();
         if ($request->jumlah < $jumlah_pendaftar) {
             return redirect('/paket')->with('error-jumlah', 'Jumlah paket tidak boleh kurang dari jumlah terjual');
         } else {
@@ -72,6 +77,7 @@ class PaketController extends Controller
             $paket->name = $request->name;
             $paket->harga = $request->harga;
             $paket->jumlah = $request->jumlah;
+            $paket->keterangan = $request->keterangan;
             $paket->status = $request->status;
             $paket->save();
             return redirect('/paket')->with('update', 'Paket berhasil diubah');

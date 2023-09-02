@@ -47,6 +47,7 @@
                                             <th>Sisa Paket</th>
                                             <th>Terjual</th>
                                             <th>Harga</th>
+                                            <th>Keterangan</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -63,6 +64,7 @@
                                             <td>{{ number_format($data->sisa) }}</td>
                                             <td>{{ number_format($data->jumlah - $data->sisa) }}</td>
                                             <td>Rp. {{ number_format($data->harga) }}</td>
+                                            <td>{{ $data->keterangan }}</td>
                                             <td>
                                                 @if($data->status == 'aktif')
                                                 <span class="badge badge-success">Aktif</span>
@@ -136,6 +138,12 @@
                                                                 <input type="text" value="{{ $data->jumlah }}" name="jumlah" class="form-control" id="recipient-name">
                                                             </div>
                                                             <div class="form-group">
+
+                                                                <label for="recipient-name" class="col-form-label">Keterangan
+                                                                </label>
+                                                                <textarea class="form-control" name="keterangan" cols="30" rows="3">{{ $data->keterangan }}</textarea>
+                                                            </div>
+                                                            <div class="form-group">
                                                                 <label for="example-select">Status</label>
                                                                 <select name="status" class="form-control" id="example-select">
                                                                     @if ($data->status == 'aktif')
@@ -193,6 +201,12 @@
                                                     <label for="recipient-name" class="col-form-label">Jumlah
                                                     </label>
                                                     <input type="text" value="" name="jumlah" class="form-control" id="recipient-name" required>
+                                                </div>
+                                                <div class="form-group">
+
+                                                    <label for="recipient-name" class="col-form-label">Keterangan
+                                                    </label>
+                                                    <textarea class="form-control" name="keterangan" cols="30" rows="3"></textarea>
                                                 </div>
                                                 <div class="form-group mb-3">
                                                     <label for="example-select">Status</label>

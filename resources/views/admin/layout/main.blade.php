@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="{{ asset('logo-jkg.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') - Dies Natalis 2023</title>
+    <title>@yield('title') - Maxilla 2023</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{ asset('admin/css/simplebar.css') }}">
     <!-- Fonts CSS -->
@@ -168,9 +168,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Profil Modal -->
-            {{-- <div class="modal fade" id="profilModal" tabindex="-1" role="dialog"
-                aria-labelledby="defaultModalLabel" aria-hidden="true">
+           
+      <!-- Profil Modal -->
+            <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -179,45 +179,61 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/update-profile/{{ Auth::User()->id }}" method="POST">
-            @csrf
-            <div class="modal-body">
+                        <form action="/update-profil/{{ Auth::User()->id }}" method="POST">
+                            @csrf
+                            <div class="modal-body">
+                                
+                                       @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                                </button>
 
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Name</label>
-                    <input type="text" name="nama" value="{{ Auth::User()->nama }}" class="form-control"
-                        id="recipient-name">
-                </div>
 
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Email</label>
-                    <input type="email" name="email" value="{{ Auth::User()->email }}" class="form-control"
-                        id="recipient-name">
-                </div>
+                                <?php
 
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Old Password</label>
-                    <input type="password" name="oldpassword" class="form-control" id="recipient-name">
-                </div>
+                                        $nomer = 1;
 
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="recipient-name">
-                </div>
+                                        ?>
 
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Repassword</label>
-                    <input type="password" name="repassword" class="form-control" id="recipient-name">
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $nomer++ }}. {{ $error }}</li>
+                                @endforeach
+                            </div>
+                            @endif
+
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Name</label>
+                                    <input type="text" name="name" value="{{ Auth::User()->name }}" class="form-control" id="recipient-name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Email</label>
+                                    <input type="email" name="email" value="{{ Auth::User()->email }}" class="form-control" id="recipient-name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Old Password</label>
+                                    <input type="password" name="oldpassword" class="form-control" id="recipient-name"  required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Password</label>
+                                    <input type="password" name="password" class="form-control" id="recipient-name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Repassword</label>
+                                    <input type="password" name="repassword" class="form-control" id="recipient-name" required >
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn mb-2 btn-danger" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn mb-2 btn-success">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn mb-2 btn-danger" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn mb-2 btn-success">Save changes</button>
-            </div>
-            </form>
-    </div>
-    </div>
-    </div> --}}
 
     <!-- Logout Modal -->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
@@ -225,7 +241,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="defaultModalLabel">Delete Modal</h5>
+                    <h5 class="modal-title" id="defaultModalLabel">Logout Modal</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

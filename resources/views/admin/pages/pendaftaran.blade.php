@@ -71,14 +71,14 @@
                                             <td>Rp. {{ number_format($data->paket->harga) }}</td>
                                             <td>
 
-                                                @if($data->status == 'paid')
-                                                <span class="badge badge-success">Paid</span>
-                                                @elseif($data->status == 'belumpilihpembayaran')
-                                                <span class="badge badge-warning">Belum Pilih Pembayaran</span>
-                                                @elseif($data->status == 'expire')
-                                                <span class="badge badge-secondary">Expire</span>
+                                                @if($data->status == 'PAID')
+                                                <span class="badge badge-success">Sudah Bayar</span>
+                                                @elseif($data->status == 'UNPAID')
+                                                <span class="badge badge-warning">Belum Bayar</span>
+                                                @elseif($data->status == 'EXPIRED')
+                                                <span class="badge badge-secondary">Kadaluarsa</span>
                                                 @else
-                                                <span class="badge badge-danger">Pending</span>
+                                                <span class="badge badge-danger">Gagal</span>
                                                 @endif
                                             </td>
                                             <td>

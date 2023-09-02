@@ -23,6 +23,7 @@ Route::get('/index', [LandingController::class, 'index']);
 Route::post('/daftar', [LandingController::class, 'daftar']);
 Route::post('/', [LandingController::class, 'caritiket'])->middleware('Modify');
 Route::delete('/bataltiket/{id}', [LandingController::class, 'bataltiket']);
+Route::post('/update-profil/{id}', [AuthController::class, 'updateprofil'])->middleware('IsLogin');
 
 route::get('/login', [AuthController::class, 'index'])->middleware('IsStay');
 route::post('/login', [AuthController::class, 'authenticate'])->middleware('IsStay');

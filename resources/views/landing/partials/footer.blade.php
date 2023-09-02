@@ -4,7 +4,7 @@
              <div class="row">
 
                  <div class="col-lg-6 col-12">
-                     <h2 class="text-white mb-lg-0">Dies Natalis</h2>
+                     <h2 class="text-white mb-lg-0">Maxilla 2023</h2>
                  </div>
 
                  <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
@@ -60,15 +60,19 @@
                      </li> --}}
 
                      <li class="site-footer-link-item">
-                         <a href="/#section_3" class="site-footer-link">Artists</a>
+                         <a href="/#section_2" class="site-footer-link">Artists</a>
                      </li>
 
                      <li class="site-footer-link-item">
-                         <a href="/#section_4" class="site-footer-link">Schedule</a>
+                         <a href="/#section_3" class="site-footer-link">Schedule</a>
                      </li>
 
                      <li class="site-footer-link-item">
-                         <a href="/#section_5" class="site-footer-link">Ticket</a>
+                         <a href="/#section_4" class="site-footer-link">Ticket</a>
+                     </li>
+
+                     <li class="site-footer-link-item">
+                         <a href="/#section_5" class="site-footer-link">Check Ticket</a>
                      </li>
 
                      {{-- <li class="site-footer-link-item">
@@ -82,13 +86,13 @@
 
                  <p class="text-white d-flex mb-1">
                      <a href="tel:%20090-080-0760" class="site-footer-link">
-                         090-080-0760
+                         +62 823-3095-1097
                      </a>
                  </p>
 
                  <p class="text-white d-flex">
-                     <a href="mailto:hello@company.com" class="site-footer-link">
-                         hello@company.com
+                     <a href="mailto:himakepgi@gmail.com" class="site-footer-link">
+                         himakepgi@gmail.com
                      </a>
                  </p>
              </div>
@@ -97,9 +101,9 @@
                  <h5 class="site-footer-title mb-3">Location</h5>
 
                  <p class="text-white d-flex mt-3 mb-2">
-                     Silang Junction South, Tagaytay, Cavite, Philippines</p>
+                     Jl. Pucang Jajar Tengah No.56, Kertajaya, Kec. Gubeng, Surabaya, Jawa Timur 60282</p>
 
-                 <a class="link-fx-1 color-contrast-higher mt-3" href="#">
+                 <a class="link-fx-1 color-contrast-higher mt-3" href="/#section_5">
                      <span>Our Maps</span>
                      <svg class="icon" viewbox="0 0 32 32" aria-hidden="true">
                          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -122,21 +126,21 @@
                      <p class="copyright-text">Distributed by: <a href="jokidong.site">JokiDong</a></p>
                  </div>
 
-                 <div class="col-lg-8 col-12 mt-lg-5">
-                     <ul class="site-footer-links">
-                         <li class="site-footer-link-item">
-                             <a href="#" class="site-footer-link">Terms &amp; Conditions</a>
-                         </li>
+                 <!--<div class="col-lg-8 col-12 mt-lg-5">-->
+                 <!--    <ul class="site-footer-links">-->
+                 <!--        <li class="site-footer-link-item">-->
+                 <!--            <a href="#" class="site-footer-link">Terms &amp; Conditions</a>-->
+                 <!--        </li>-->
 
-                         <li class="site-footer-link-item">
-                             <a href="#" class="site-footer-link">Privacy Policy</a>
-                         </li>
+                 <!--        <li class="site-footer-link-item">-->
+                 <!--            <a href="#" class="site-footer-link">Privacy Policy</a>-->
+                 <!--        </li>-->
 
-                         <li class="site-footer-link-item">
-                             <a href="#" class="site-footer-link">Your Feedback</a>
-                         </li>
-                     </ul>
-                 </div>
+                 <!--        <li class="site-footer-link-item">-->
+                 <!--            <a href="#" class="site-footer-link">Your Feedback</a>-->
+                 <!--        </li>-->
+                 <!--    </ul>-->
+                 <!--</div>-->
              </div>
          </div>
      </div>

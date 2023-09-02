@@ -22,15 +22,15 @@ https://templatemo.com/tm-583-festava-live
     --link-hover-color: #b22727; */
 
     --white-color: #ffffff;
-    --primary-color: #4582ff;
-    --secondary-color: #003bb2;
+    --primary-color: #49457e;
+    --secondary-color: #1f1c47;
     --section-bg-color: #f0f8ff;
-    --custom-btn-bg-color: #003bb2;
-    --custom-btn-bg-hover-color: #0048d8;
+    --custom-btn-bg-color: #1f1c47;
+    --custom-btn-bg-hover-color: #363368;
     --dark-color: #000000;
     --p-color: #717275;
     --border-color: #7fffd4;
-    --link-hover-color: #0048d8;
+    --link-hover-color: #1f1c47;
 
     --body-font-family: "Outfit", sans-serif;
 
@@ -101,6 +101,22 @@ h5 {
 
 h6 {
     font-size: var(--h6-font-size);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Untuk video 16:9, bisa diganti sesuai aspect ratio video */
+    height: 0;
+}
+
+/* Untuk mengatur ukuran iframe agar mengisi container dengan benar */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 p {
@@ -568,8 +584,8 @@ strong {
 
 .ticket-form .form-check {
     position: relative;
-    min-height: 52px;
-    padding-left: 35px;
+    min-height: 68px;
+    padding-left: 40px;
 }
 
 .ticket-form .form-check .form-check-label {
@@ -606,7 +622,7 @@ strong {
 
 .artists-hover {
     background-color: var(--primary-color);
-    background-color: rgba(46, 110, 248, 0.75);
+    background-color: rgba(31, 28, 71, 0.75);
     border-radius: var(--border-radius-medium);
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(5px) saturate(180%);
@@ -682,7 +698,7 @@ strong {
 }
 
 .schedule-table thead th {
-    border-right: 1px solid #c7460a;
+    /*border-right: 1px solid #c7460a;*/
     border-bottom-color: transparent;
 }
 
